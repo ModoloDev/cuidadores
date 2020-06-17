@@ -67,3 +67,15 @@ a:hover{
     text-align: center;
     position: inherit;
 }
+
+
+/* Mobile Styling */
+ 
+@media (max-width: 800px) {
+    .main{
+        max-width: 100%;
+        flex: 100%;
+        font-size: 36px;
+        line-height: 34px;
+    }
+}
