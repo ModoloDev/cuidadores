@@ -1,0 +1,125 @@
+
+
+body{
+    background: linear-gradient(90deg, rgba(6, 28, 51, 1), rgba(0,0,0,0)), url(../img/cuidadorimg.jpg) no-repeat center / cover;
+    font-family: 'Roboto Condensed', sans-serif;
+  }
+
+.main{
+    background: white;
+    color: #212124;
+    font-weight: bold;
+    border-radius: 45px;
+    margin-top: 3%;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 5%;
+    padding-top: 1.5%;
+    padding-bottom: 3%;
+  }
+
+.login{
+    text-align: center;
+}
+
+h1{
+    font-size: 72px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.text-main { color: #1C1E4A; }
+.text-primary { color: #41EAA7; }
+
+
+.inputs input {
+  box-shadow: none;
+  border: none;
+  display: block;
+  -webkit-appearance: none;
+}
+.inputs input:focus {
+  box-shadow: none;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+
+
+
+.inputs .input-group {
+  position: relative;
+  margin-bottom: 24px;
+  background:#FAFAFA;
+}
+
+.inputs .input-group .m-i {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: .25;
+  transition: all .5s ease;
+}
+.inputs input:focus + .m-i { 
+  color: #41EAA7; 
+  opacity: 1; 
+}
+
+.inputs .input-group input {
+  padding: 6px 24px 6px 6px;
+  border-bottom: 2px solid rgba(6, 28, 51, .25);
+  width: 100%;
+  box-sizing: border-box;
+  transition: all .5s ease;
+}
+.inputs .input-group input:focus {
+  border-color: rgba(6, 28, 51, 1);
+}
+
+.inputs .input-group *{
+  font-size: 28px;
+}
+
+label *{
+  display: inline;
+}
+
+label h2{
+  font-size: 52px;
+}
+
+.container{
+  margin: 5%;
+}
+
+
+.btn {
+  background-color: transparent;
+  padding: 12px 6px;
+  font-size: 28px;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,.14);
+  cursor: pointer;
+  border-radius: 2px;
+  width: 100%;
+  margin-bottom: 12px;
+  transition: all .5s ease;
+}
+
+.btn-primary {
+  background-color: #41EAA7;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: .5px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,.14);
+}
+.btn-primary:hover {
+  background-color: #1C1E4A;
+}
