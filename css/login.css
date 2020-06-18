@@ -1,6 +1,9 @@
 body{
     background: linear-gradient(90deg, rgba(6, 28, 51, 1), rgba(0,0,0,0)), url(../img/cuidadorimg.jpg) no-repeat center / cover;
     font-family: 'Roboto Condensed', sans-serif;
+    font-size: 100%;
+    line-height: 1.3em;
+    color: #717171;
   }
 
 .main{
@@ -11,14 +14,17 @@ body{
     margin-top: 3%;
     margin-left: 25%;
     margin-right: 25%;
-    padding: 5%;
     padding-top: 1.5%;
     padding-bottom: 3%;
+    width: 50%;
+    min-height: 60%;
   }
 
 .login{
     text-align: center;
-    margin: 25%;
+    -webkit-transform: translateZ(0); /* webkit flicker fix */
+    -webkit-font-smoothing: antialiased; /* webkit text rendering fix */
+    margin: 20%;
 }
 
 h1{
@@ -28,16 +34,6 @@ h1{
 h2{
     font-size: 36px;
 }
-
-h3{
-    font-size: 26px;
-    background: #fafafa;
-    border-radius: 15px;
-    padding: 3%;
-    border: 0.5px solid black;
-}
-
-
 a{
     text-decoration: none;
     color: #1C1E4A;
@@ -69,13 +65,120 @@ a:hover{
 }
 
 
+/* Menu */
+.menu {
+    display: block;
+    position: absolute;
+    padding: 24px;
+    top: 0px;
+    left: 0px;
+}
+
+.menu ul>li>a {
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-right: 24px;
+    font-weight: bold;
+    letter-spacing: .5px;
+}
+.menu ul>li>a:hover {
+    color: #41EAA7;
+}
+
+nav>ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+nav>ul>li { display: inline-block; }
+
+
+
+
+
+.login .tooltip {
+    background: #41EAA7;
+    bottom: 100%;
+    color: #fff;
+    display: block;
+    left: -20px;
+    margin-bottom: 15px;
+    opacity: 0;
+    padding: 20px;
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    -webkit-transform: translateY(10px);
+      -moz-transform: translateY(10px);
+      -ms-transform: translateY(10px);
+       -o-transform: translateY(10px);
+        transform: translateY(10px);
+    -webkit-transition: all .25s ease-out;
+      -moz-transition: all .25s ease-out;
+      -ms-transition: all .25s ease-out;
+       -o-transition: all .25s ease-out;
+        transition: all .25s ease-out;
+    -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+      -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+      -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+       -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+    }
+    
+    /* This bridges the gap so you can mouse into the tooltip without it disappearing */
+    .login .tooltip:before {
+    bottom: -20px;
+    content: " ";
+    display: block;
+    height: 20px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    }
+    
+    /* CSS Triangles - see Trevor's post */
+    .login .tooltip:after {
+    border-left: solid transparent 10px;
+    border-right: solid transparent 10px;
+    border-top: solid #41EAA7 10px;
+    bottom: -10px;
+    content: " ";
+    height: 0;
+    left: 50%;
+    margin-left: -13px;
+    position: absolute;
+    width: 0;
+    }
+    
+    .login:hover .tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    -webkit-transform: translateY(0px);
+      -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+       -o-transform: translateY(0px);
+        transform: translateY(0px);
+    }
+    
+
+
+
+
+
+
+
+
 /* Mobile Styling */
  
-/* @media (max-width: 800px) {
-    .main{
-        max-width: 100%;
-        flex: 100%;
-        font-size: 36px;
-        line-height: 34px;
+@media (max-width: 800px) {
+    .menu{
+        display: none;
     }
-} */
+    .main{
+        margin: 0px;
+        height: 100%;
+        width: 100%;
+    }
+}
+
