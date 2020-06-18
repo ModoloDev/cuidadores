@@ -171,14 +171,18 @@ nav>ul>li { display: inline-block; }
 
 /* Mobile Styling */
  
-@media (max-width: 800px) {
+@media (max-width: 1200px) {
     .menu{
         display: none;
     }
     .main{
-        margin: 0px;
-        height: 100%;
-        width: 100%;
+        margin: 5%;
+        height: 90%;
+        width: 90%;
+        border-radius: 15px;
+    }
+    .main *{
+        font-size:12vw
     }
 }
 
