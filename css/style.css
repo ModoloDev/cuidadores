@@ -159,7 +159,7 @@ a:focus, a:hover {
     max-width: 500px;
     position: relative;
 }
-@media (min-width: 1000px) {
+@media (min-width: 1090px) {
     .login-card { padding: 48px; }
 }
 
@@ -224,7 +224,7 @@ input:focus + .m-i {
 
 /* Mobile Styling */
  
-@media (max-width: 800px) {
+@media (max-width: 1080px) {
     .login-image, .login-card {
         flex: 50%;
     }
@@ -237,9 +237,7 @@ input:focus + .m-i {
         font-size: 36px;
         line-height: 34px;
     }
-}
 
-@media (max-width: 600px) {
     .login-image {
         display: none;
     }

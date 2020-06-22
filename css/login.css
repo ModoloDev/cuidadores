@@ -9,16 +9,21 @@ body{
 .main{
     background: white;
     color: #212124;
-    font-weight: bold;
-    border-radius: 45px;
+    border-radius: 15px;
     margin-top: 3%;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: 35%;
+    margin-right: 35%;
     padding-top: 1.5%;
     padding-bottom: 3%;
-    width: 50%;
-    min-height: 60%;
+    width: 35%;
+    height: 80%;
   }
+
+
+.login-card{
+    padding: 48px;
+}
+
 
 .login{
     text-align: center;
@@ -28,7 +33,7 @@ body{
 }
 
 h1{
-    font-size: 72px;
+    font-size:4vw
 }
 
 h2{
@@ -36,10 +41,13 @@ h2{
 }
 a{
     text-decoration: none;
+    cursor: pointer;
+}
+.main a{
     color: #1C1E4A;
 }
 
-a:hover{
+.main a:hover{
     color: #41EAA7;
 }
 
@@ -54,10 +62,12 @@ a:hover{
 
 #plus{
     font-size: 92px;
+    position: block;
 }
 
 .text-main { color: #1C1E4A; }
 .text-primary { color: #41EAA7; }
+.text-muted { color: #a8a8a8; }
 
 .cuidadores{
     text-align: center;
@@ -66,12 +76,24 @@ a:hover{
 
 
 /* Menu */
+#bars{
+    font-size: 3.5vw;
+    color: white;
+    position: fixed;
+}
+#bars:hover{
+    color:  #41EAA7;
+}
+
 .menu {
     display: block;
     position: absolute;
     padding: 24px;
     top: 0px;
     left: 0px;
+}
+.menu{
+    font-size: 14px;
 }
 
 .menu ul>li>a {
@@ -162,27 +184,125 @@ nav>ul>li { display: inline-block; }
     }
     
 
+.login-card-footer {
+    display: none;
+}
 
+/* Side  menu */ 
+.sidebarmenu{
+    position: fixed;
+    display: none;
+    background: white;
+    left: 0;
+    top: 0;
+    margin: 0px;
+    width: 17%;
+    height: 100%;
+    padding: 3%;
+    z-index:9999;
+    border-radius: 15px;
+}
+.sidebarmenu *{
+    color: #1C1E4A;
+}
 
+.sidebarmenu .menuPerfil{
+    width: 100%;
+    margin-bottom: 15%;
+}
 
+.sidebarmenu .menuPerfil img{
+    margin: 0px auto;
+    float: none;
+    display: table;
+    border: 1px solid black;
+    border-radius: 100%;
+    width: 10vw;
+    height: 10vw;
 
+}
 
+.sidebarmenu .menuLinks{
+    list-style:none;
+    display: inline-block;
+}
 
+.sidebarmenu .menuLinks i, h3{
+    display: inline-block;
+    font-size:3vw
+}
+
+.sidebarmenu .close{
+    top: 15px;
+    right: 15px;
+    position: absolute;
+    color: #1C1E4A;
+    font-size: 3vw;
+}
+.sidebarmenu .close:hover{
+    color: #41EAA7;
+}
+.sidebarmenu .menuLinks nav ul *:hover{
+    color: #41EAA7;
+}
+    
 
 /* Mobile Styling */
  
 @media (max-width: 1200px) {
-    .menu{
-        display: none;
+    body{
+        background: white;
     }
+    /* .menu{
+        display: none;
+    } */
     .main{
-        margin: 5%;
-        height: 90%;
-        width: 90%;
-        border-radius: 15px;
+        margin: 0%;
+        height: 100%;
+        width: 100%;
+        border-radius: 0px;
     }
     .main *{
         font-size:12vw
     }
-}
+    .login-card-footer {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 24px;
+        border-top: 1px solid rgba(0,0,0,.1);
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+        text-decoration: none;
+    }
+    
+    .login-card-footer p {
+        margin: 0;
+        font-size: 12px;
+    }
 
+    /* Side  menu */ 
+    .sidebarmenu{
+        width: 70%;
+    }
+    .sidebarmenu .close{
+        font-size: 12vw;
+    }
+    .sidebarmenu .menuPerfil img{
+        width: 30vw;
+        height: 30vw;
+    }
+    .sidebarmenu .menuLinks *{
+        font-size: 12vw;
+        margin: 1px;
+    }
+    .sidebarmenu .menuLinks nav ul i{
+        font-size: 20vw;
+    }
+    #bars{
+        color: #1C1E4A;
+        font-size: 12vw;
+    }
+}
