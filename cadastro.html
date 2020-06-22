@@ -14,22 +14,22 @@
 
                 <div class="inputs">
                     <div class="input-group">
-                        <input type="text" placeholder="CPF">
+                        <input id="inputCPF" type="text" placeholder="CPF">
                         <i class="fa fa-id-card m-i material-icons" aria-hidden="true"></i>
                     </div>
 
                     <div class="input-group">
-                        <input type="text" placeholder="Email">
+                        <input id="inputEmail" type="text" placeholder="Email">
                         <i class="fa fa-envelope m-i material-icons" aria-hidden="true"></i>
                     </div>
 
                     <div class="input-group">
-                        <input type="password" placeholder="Senha">
+                        <input id= "inputSenha" type="password" placeholder="Senha">
                         <i class="fa fa-lock m-i material-icons" aria-hidden="true"></i>
                     </div>
 
                     <div class="input-group">
-                        <input type="password" placeholder="Repetir Senha">
+                        <input id="inputRepetirSenha" type="password" placeholder="Repetir Senha">
                         <i class="fa fa-lock m-i material-icons" aria-hidden="true"></i>
                     </div>
                 </div>
@@ -40,12 +40,12 @@
                 <div class="space">
                     <label class="container">
                         <h2><span class="text-main">Paci</span><span class="text-primary">ente</span></h2>
-                        <input type="radio" name="radio" style='width: 36px; height: 36px;'>
+                        <input id="checkmarkPaciente" type="radio" name="radio" style='width: 36px; height: 36px;'>
                         <span class="checkmark"></span>
                     </label>
                     <label class="container">
                         <h2><span class="text-main">Cuid</span><span class="text-primary">ador</span></h2>
-                        <input type="radio" name="radio" style='width: 36px; height: 36px;'>
+                        <input id="checkmarkCuidador" type="radio" name="radio" style='width: 36px; height: 36px;'>
                         <span class="checkmark"></span>
                     </label>
                 </div>
@@ -53,8 +53,9 @@
                 <br>
                 <br>
                 <br>
-
-                <a href="logincuidador.html"><button type="submit" vlaue="Submit" class="btn btn-primary">Cadastrar</button></a>
+                <a><button id="btnCadastro" type="submit" value="Submit" class="btn btn-primary">Cadastrar</button></a>
+                <script type="text/javascript" src="js/data.json"></script>
+                <script src="js/cadastro.js"></script>
             </div>
         </div>
     </body>
