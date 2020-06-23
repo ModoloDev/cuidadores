@@ -77,11 +77,11 @@ exports.postAdicionaPacienteCuidador = (req, res, next) => {
 exports.getCuidador = (req, res, next) => {
 
     // exemplo de body = {
-    //     email: "exemplo@exemplo.com.br"
+    //     cpf: "XXXXXXXXXXXXXXX"
     // }
 
     Cuidador.find({
-        email: req.body.email
+        cpf: req.body.cpf
     }).then(data => {
         res.status(200).send({data: data[0]})
     }).catch(e => {
@@ -92,11 +92,11 @@ exports.getCuidador = (req, res, next) => {
 exports.getPaciente = (req, res, next) => {
 
     // exemplo de body = {
-    //     email: "exemplo@exemplo.com.br"
+    //     cpf: "XXXXXXXXXXXXX"
     // }
 
     Paciente.find({
-        email: req.body.email
+        cpf: req.body.cpf
     }).then(data => {
         res.status(200).send({data: data[0]})
     }).catch(e => {
