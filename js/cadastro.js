@@ -2,13 +2,13 @@ const URL_API = 'http://localhost:3000'
 
 document.getElementById('btnCadastro').addEventListener('click', async () => {
 
-    const nome = "Teste1"
-    const cpf = document.getElementById('inputCPF').value;
-    const email = document.getElementById('inputEmail').value;
-    const senha = document.getElementById('inputSenha').value;
-    const repetirSenha = document.getElementById('inputRepetirSenha').value;
-    const checkmarkPaciente = document.getElementById('checkmarkPaciente').checked;
-    const checkmarkCuidador = document.getElementById('checkmarkCuidador').checked;
+    var nome = "Teste1"
+    var cpf = document.getElementById('inputCPF').value;
+    var email = document.getElementById('inputEmail').value;
+    var senha = document.getElementById('inputSenha').value;
+    var repetirSenha = document.getElementById('inputRepetirSenha').value;
+    var checkmarkPaciente = document.getElementById('checkmarkPaciente').checked;
+    var checkmarkCuidador = document.getElementById('checkmarkCuidador').checked;
 
     if (nome == '' || cpf == '' || email == '' || senha == '' || repetirSenha == '' || (checkmarkPaciente == false && checkmarkCuidador == false)) {
         window.alert('Preencha todos os campos!');
@@ -20,76 +20,33 @@ document.getElementById('btnCadastro').addEventListener('click', async () => {
         return;
     }
 
-    if (checkmarkPaciente) {
-        user = 'paciente';
-        let verif = await verificaCadastroRepetido(cpf, 'cuidador')
-        if (verif && verif != undefined) {
+    var payloadJSONVerif = JSON.stringify({cpf: cpf})
+    var verif = await fetch(`${URL_API}/user/cpf`, {
+        method: 'POST',
+        body: payloadJSONVerif,
+        headers: {"Content-Type": "application/json; charset=UTF-8"}
+    })
+    await verif.json().then(data => {
+        if (Object.keys(data.data).length !== 0){
             window.alert('Ja existe uma conta com esse CPF ou Email');
-            return;
+            throw new Error("Cadastro repetido");
         }
-    } else {
-        user = 'cuidador';
-        let verif = await verificaCadastroRepetido(cpf, 'paciente')
-        if (verif && verif != undefined) {
-            window.alert('Ja existe uma conta com esse CPF ou Email');
-            return;
-        }
-    }
+    })
 
-    var payload = {
+    if (checkmarkPaciente) {var user = 'paciente'} else {var user = 'cuidador'};
+
+    var payloadJSON = JSON.stringify({
         "nome": nome,
         "cpf": cpf,
         "email": email,
         "senha": senha
-    }
+    });
 
-    var payloadJSON = JSON.stringify(payload);
-    var xhr = new XMLHttpRequest();
+    fetch(`${URL_API}/cadastro/${user}`, {
+        method: 'POST',
+        body: payloadJSON,
+        headers: {"Content-Type": "application/json; charset=UTF-8"}
+    });
 
-    xhr.onreadystatechange = function () {
-        if (this.readyState != 4) return;
-    
-        if (this.status == 200) {
-            // redireciona pra prox pagina
-        }
-        if (this.status == 400) {
-            window.alert('Ja existe uma conta com esse CPF ou Email');
-            return;
-        }
-    };
-
-    xhr.open("POST", `${URL_API}/cadastro/${user}`);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(payloadJSON);
+    // redirect pagina ${user}
 });
-
-async function verificaCadastroRepetido (cpf, user) {
-
-    var promise = new Promise(function (resolve, rejected) {
-        var xhr = new XMLHttpRequest();
-
-        payload = {
-            cpf: cpf
-        }
-
-        var payloadJSON = JSON.stringify(payload);
-
-        xhr.onreadystatechange = function () {
-            if (this.readyState != 4) return;
-        
-            if (this.status == 200) {
-                var data = JSON.parse(this.responseText);
-                if (Object.keys(data).length === 0) {
-                    resolve(false);
-                } else {
-                    resolve(true);
-                }
-            }
-        };
-
-        xhr.open("POST", `${URL_API}/${user}`);
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.send(payloadJSON);
-    })
-    return promise;
-}

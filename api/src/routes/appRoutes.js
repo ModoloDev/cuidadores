@@ -5,7 +5,7 @@ const controller = require('../controller/appController');
 router.post('/cadastro/paciente', controller.postCadastroPaciente);
 router.post('/cadastro/cuidador', controller.postCadastroCuidador);
 router.post('/adiciona', controller.postAdicionaPacienteCuidador);
-router.post('/paciente', controller.getPaciente);
-router.post('/cuidador', controller.getCuidador);
+router.post('/user/cpf', controller.getUserCPF);
+router.post('/user/email', controller.getUserEmail);
 
 module.exports = router;

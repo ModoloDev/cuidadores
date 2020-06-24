@@ -74,32 +74,90 @@ exports.postAdicionaPacienteCuidador = (req, res, next) => {
     })
 }
 
-exports.getCuidador = (req, res, next) => {
+exports.getUserCPF = async (req, res, next) => {
 
     // exemplo de body = {
     //     cpf: "XXXXXXXXXXXXXXX"
     // }
 
-    Cuidador.find({
-        cpf: req.body.cpf
-    }).then(data => {
-        res.status(200).send({data: data[0]})
-    }).catch(e => {
-        res.status(400).send({message: `${e}`})
-    })  
+    var dataPaciente = await getPacientesCPF(req.body.cpf);
+    var dataCuidador = await getCuidadoresCPF(req.body.cpf);
+
+    if (dataPaciente === undefined && dataCuidador === undefined) {
+        res.status(400).send({message: 'Erro ao buscar Usuarios'})
+    } else {
+        res.status(200).send({data: {paciente: dataPaciente, cuidador: dataCuidador}})
+    }
 }
 
-exports.getPaciente = (req, res, next) => {
+exports.getUserEmail = async (req, res, next) => {
 
     // exemplo de body = {
-    //     cpf: "XXXXXXXXXXXXX"
+    //     email: "exemplo@exemplo.com.br"
     // }
 
-    Paciente.find({
-        cpf: req.body.cpf
-    }).then(data => {
-        res.status(200).send({data: data[0]})
-    }).catch(e => {
-        res.status(400).send({message: `${e}`})
+    var dataPaciente = await getPacientesEmail(req.body.email);
+    var dataCuidador = await getCuidadoresEmail(req.body.email);
+
+    if (dataPaciente === undefined && dataCuidador === undefined) {
+        res.status(400).send({message: 'Erro ao buscar Usuarios'})
+    } else {
+        res.status(200).send({data: {paciente: dataPaciente, cuidador: dataCuidador}})
+    }
+}
+
+async function getPacientesEmail(email) {
+
+    var promise = new Promise(function (resolve, rejected){
+        Paciente.find({
+            email: email
+        }).then(data => {
+            resolve(data[0])
+        }).catch(e => {
+            resolve(false)
+        })
     })
+    return promise;
+}
+
+async function getPacientesCPF(cpf) {
+
+    var promise = new Promise(function (resolve, rejected){
+        Paciente.find({
+            cpf: cpf
+        }).then(data => {
+            resolve(data[0])
+        }).catch(e => {
+            resolve(false)
+        })
+    })
+    return promise;
+}
+
+async function getCuidadoresEmail(email) {
+
+    var promise = new Promise(function (resolve, rejected){
+        Cuidador.find({
+            email: email
+        }).then(data => {
+            resolve(data[0])
+        }).catch(e => {
+            resolve(false)
+        })
+    })
+    return promise;
+}
+
+async function getCuidadoresCPF(cpf) {
+
+    var promise = new Promise(function (resolve, rejected){
+        Cuidador.find({
+            cpf: cpf
+        }).then(data => {
+            resolve(data[0])
+        }).catch(e => {
+            resolve(false)
+        })
+    })
+    return promise;
 }
