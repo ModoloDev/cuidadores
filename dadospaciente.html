@@ -1,54 +1,95 @@
 <html>
     <head>
-        <title>Cadastro de Paciente - Cuidadores</title>
-        <link rel="stylesheet" href="css/cadastro.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+        <title>Cadastro Paciente - Cuidadores</title>
+        <link rel="stylesheet" href="css/dadospaciente.css">
+        <script src="js/login.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="js/jquery.mask.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+        <link rel="shortcut icon" href="img/heartline.png" />
+        
     </head>
     <body>
-        <div class="main">
-            <div class="login">
-                <h1 class="cuidadores"><span class="text-main">cuida</span><span class="text-primary">dores</span></h1>
-                <!-- <h1>Cadastro</h1> -->
-                <br>
-                <br>
+        <nav class="menu">
+            <!-- <ul>
+                <li><a class="logo" href="index.html">cuida<span class="text-primary">dores</span></a></li>
+            </ul> -->
+            <a><i class="fa fa-bars" id="bars"></i></a>
+        </nav>
 
-                <div class="inputs">
-                    <div class="input-group">
-                        <input type="text" placeholder="CPF">
-                        <i class="fa fa-id-card m-i material-icons" aria-hidden="true"></i>
-                    </div>
 
-                    <div class="input-group">
-                        <input type="text" placeholder="Nome Completo">
-                        <i class="fa fa-id-badge m-i material-icons" aria-hidden="true"></i>
-                    </div>
-
-                    <div class="input-group">
-                        <input type="date" placeholder="Data de Nascimento" style="color: grey;">
-                        <i class="fa fa-calendar m-i material-icons" aria-hidden="true"></i>
-                    </div>
-
-                    <div class="input-group">
-                        <input type="text" placeholder="Sexo">
-                        <i class="fa fa-male m-i material-icons" aria-hidden="true"></i>
-                    </div>
-
-                    <div class="input-group">
-                        <input type="text" placeholder="Endereço">
-                        <i class="fa fa-map-marker m-i material-icons" aria-hidden="true"></i>
-                    </div>
-
-                </div>
-
-                <br>
-                <br>
-
-                <br>
-                <br>
-                <br>
-
-                <a href="loginregular.html"><button type="submit" vlaue="Submit" class="btn btn-primary">Cadastrar</button></a>
+        <div class="sidebarmenu">
+            <div class="close">
+                <a><i class="fa fa-close"></i></a>
+            </div>
+            <div class="menuPerfil">
+                <a href="perfil.html"><img src="img/avatar.png"></a>
+            </div>
+            <div class="menuLinks">
+                <nav>
+                    <a href="index.html"><ul><i class="fa fa-home menuButton"></i><h3>Home</h3></ul></a>
+                    <a href="quemsomos.html"><ul><i class="fa fa-user menuButton"></i><h3>Quem Somos</h3></ul></a>
+                </nav>
             </div>
         </div>
+          
+        <div class="main">
+            <h1 class="cuidadores"><span class="text-main">CADA</span><span class="text-primary">STRO</span> <span class="text-main">PACI</span><span class="text-primary">ENTE</span></h1>
+            <div class="login-card">
+                <form action="/action_page.php">
+                    <div class="inputs">
+                        <div class="input-group">
+                            <input type="text" placeholder="CPF" id="CPF" title="CPF" required>
+                            <i class="fa fa-id-card m-i material-icons" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="text" placeholder="Nome Completo" maxlength="50" title="Nome Completo" required>
+                            <i class="fa fa-id-badge m-i material-icons" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="date" placeholder="Data de Nascimento" style="color: grey;" title="Data de Nascimento" required>
+                            <i class="fa fa-calendar m-i material-icons" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="text" list="sexo" placeholder="Sexo" maxlength="1" pattern="[F, M, f, m]{1}" title="Sexo" required>
+                            <i class="fa fa-male m-i material-icons" aria-hidden="true"></i>
+                            <datalist id="sexo">
+                                <option value="M">
+                                <option value="F">
+                              </datalist>
+                        </div>
+
+                        <div class="input-group">
+                            <input required type="text" placeholder="Endereço" maxlength="100" title="Endereço">
+                            <i class="fa fa-map-marker m-i material-icons" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="btnClass">
+                        <button type="submit" value="Submit" class="btn btn-primary">Cadastrar</button>
+                    </div>
+                </form>
+
+
+                <div class="login-card-footer">
+                    <p class="text-muted">2020 Copyright &copy; Cuidadores</p>
+                </div>
+            </div>
+        </div>
+        <script>
+            //Input
+            $("#CPF").mask("000.000.000-00");
+
+            //Button Function
+            $('.fa-bars').click(function() {
+                $('.sidebarmenu').toggle("fast", "swing");
+            });
+            $('.close').click(function(){
+                $('.sidebarmenu').toggle("fast", "swing");
+            });
+        </script>
     </body>
 </html>

@@ -15,7 +15,7 @@ exports.postCadastroPaciente = (req, res, next) => {
     cadastro.save().then(x => {
         res.status(200).send({message: "Paciente cadastrado com sucesso!", data: req.body})
     }).catch(e => {
-        res.status(400).send(e);
+        res.status(400).send({message: e});
     })
 };
 
@@ -40,7 +40,7 @@ exports.postCadastroCuidador = (req, res, next) => {
     cadastro.save().then(x => {
         res.status(200).send({message: "Cuidador cadastrado com sucesso!", data: req.body})
     }).catch(e => {
-        res.status(400).send(e);
+        res.status(400).send({message: e});
     })
 }
 
@@ -77,13 +77,13 @@ exports.postAdicionaPacienteCuidador = (req, res, next) => {
 exports.getCuidador = (req, res, next) => {
 
     // exemplo de body = {
-    //     email: "exemplo@exemplo.com.br"
+    //     cpf: "XXXXXXXXXXXXXXX"
     // }
 
     Cuidador.find({
-        email: req.body.email
+        cpf: req.body.cpf
     }).then(data => {
-        res.status(200).send({data: data})
+        res.status(200).send({data: data[0]})
     }).catch(e => {
         res.status(400).send({message: `${e}`})
     })  
@@ -92,13 +92,13 @@ exports.getCuidador = (req, res, next) => {
 exports.getPaciente = (req, res, next) => {
 
     // exemplo de body = {
-    //     email: "exemplo@exemplo.com.br"
+    //     cpf: "XXXXXXXXXXXXX"
     // }
 
     Paciente.find({
-        email: req.body.email
+        cpf: req.body.cpf
     }).then(data => {
-        res.status(200).send({data: data})
+        res.status(200).send({data: data[0]})
     }).catch(e => {
         res.status(400).send({message: `${e}`})
     })

@@ -8,11 +8,13 @@ const schema = new Schema ({
     },
     cpf: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     email: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     senha: {
         type: String,
