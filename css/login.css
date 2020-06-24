@@ -16,7 +16,7 @@ body{
     padding-top: 1.5%;
     padding-bottom: 3%;
     width: 35%;
-    height: 80%;
+    min-height: 80%;
   }
 
 
@@ -24,16 +24,23 @@ body{
     padding: 48px;
 }
 
+.loginTabel{
+    margin-top: 15%;
+}
+
 
 .login{
     text-align: center;
     -webkit-transform: translateZ(0); /* webkit flicker fix */
     -webkit-font-smoothing: antialiased; /* webkit text rendering fix */
-    margin: 20%;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 5%;
+    border: 1px solid black;
 }
 
 h1{
-    font-size:4vw
+    font-size:3vw
 }
 
 h2{
@@ -60,10 +67,39 @@ a{
     margin: 30px;
 } */
 
-#plus{
-    font-size: 92px;
+
+
+.loginTabel a i{
+    font-size: 3vw;
     position: block;
 }
+
+/* .paciente p{
+    font-size: 1.5vw;
+    margin: 15px;
+    margin-left: 5px;
+} */
+
+.paciente h3{
+    font-size: 2vw;
+    margin: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+    font-weight:bold;
+    line-height: 100%;
+}
+
+.paciente ul{
+    margin: 5%;
+    margin-left: 0%;
+    margin-right: 0%;
+    padding: 0px;
+}
+
+
+
+
+
 
 .text-main { color: #1C1E4A; }
 .text-primary { color: #41EAA7; }
@@ -148,7 +184,6 @@ nav>ul>li { display: inline-block; }
         box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
     }
     
-    /* This bridges the gap so you can mouse into the tooltip without it disappearing */
     .login .tooltip:before {
     bottom: -20px;
     content: " ";
@@ -159,7 +194,7 @@ nav>ul>li { display: inline-block; }
     width: 100%;
     }
     
-    /* CSS Triangles - see Trevor's post */
+    /* CSS Triangles */
     .login .tooltip:after {
     border-left: solid transparent 10px;
     border-right: solid transparent 10px;
@@ -192,13 +227,13 @@ nav>ul>li { display: inline-block; }
 .sidebarmenu{
     position: fixed;
     display: none;
-    background: white;
+    background: #fafbfc;
     left: 0;
     top: 0;
     margin: 0px;
     width: 17%;
     height: 100%;
-    padding: 3%;
+    padding: 2%;
     z-index:9999;
     border-radius: 15px;
 }
@@ -229,7 +264,9 @@ nav>ul>li { display: inline-block; }
 
 .sidebarmenu .menuLinks i, h3{
     display: inline-block;
-    font-size:3vw
+    font-size:2vw;
+    line-height: 100%;
+    margin: 0px;
 }
 
 .sidebarmenu .close{
@@ -239,10 +276,10 @@ nav>ul>li { display: inline-block; }
     color: #1C1E4A;
     font-size: 3vw;
 }
-.sidebarmenu .close:hover{
+.close i:hover{
     color: #41EAA7;
 }
-.sidebarmenu .menuLinks nav ul *:hover{
+.menuLinks h3:hover{
     color: #41EAA7;
 }
     
@@ -265,7 +302,7 @@ nav>ul>li { display: inline-block; }
     .main *{
         font-size:12vw
     }
-    .login-card-footer {
+    /* .login-card-footer {
         display: block;
         position: absolute;
         bottom: 0;
@@ -281,7 +318,7 @@ nav>ul>li { display: inline-block; }
     .login-card-footer p {
         margin: 0;
         font-size: 12px;
-    }
+    } */
 
     /* Side  menu */ 
     .sidebarmenu{
@@ -295,14 +332,25 @@ nav>ul>li { display: inline-block; }
         height: 30vw;
     }
     .sidebarmenu .menuLinks *{
-        font-size: 12vw;
+        font-size: 7.5vw;
         margin: 1px;
+        margin-bottom: 5px;
     }
     .sidebarmenu .menuLinks nav ul i{
-        font-size: 20vw;
+        font-size: 12vw;
     }
     #bars{
         color: #1C1E4A;
         font-size: 12vw;
+    }
+
+    .login .tooltip {
+        display: none;
+    }
+    .loginTabel a i{
+        font-size: 12vw;
+    }
+    .paciente h3{
+        font-size: 6vw;
     }
 }
