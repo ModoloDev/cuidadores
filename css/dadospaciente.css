@@ -79,6 +79,7 @@ a{
   text-align: center;
   line-height: 100%;
   margin: 5%;
+  margin-bottom: 0px;
 }
 
 
@@ -197,19 +198,18 @@ nav>ul>li { display: inline-block; }
 .btnClass{
   margin-left: 25%;
   margin-right: 25%;
-  margin-top: 15%;
+  margin-top: 10%;
   margin-bottom: 0%;
 }
 
-input {
+.input-group input {
   box-shadow: none;
   border: none;
   display: block;
   -webkit-appearance: none;
 }
-input:focus {
+.input-group input:focus {
   box-shadow: none;
-  border: none;
   outline: none;
   -webkit-appearance: none;
 }
@@ -231,7 +231,7 @@ input:focus {
   opacity: .25;
   transition: all .5s ease;
 }
-input:focus + .m-i { 
+.input-group input:focus + .m-i { 
   color: #41EAA7; 
   opacity: 1; 
 }
@@ -284,6 +284,21 @@ input:focus + .m-i {
   background-color: #1C1E4A;
 }
 
+
+
+/* Check */
+.space{
+  text-align: center;
+  margin-bottom: 5%;
+}
+.container{
+  display: inline-table;
+  margin: 15px;
+}
+
+label h2{
+  font-size: 2vw;
+}
 /* Mobile Styling */
 
 @media (max-width: 1200px) {
@@ -298,9 +313,6 @@ input:focus + .m-i {
       height: 100%;
       width: 100%;
       border-radius: 0px;
-  }
-  .main *{
-      font-size:12vw
   }
   /* .login-card-footer {
       display: block;
@@ -353,5 +365,11 @@ input:focus + .m-i {
   }
   .cuidadores{
     margin-top: 15%;
+    margin-bottom: 5%;
+    font-size: 12vw;
+  }
+
+  label h2{
+    font-size: 5.5vw;
   }
 }

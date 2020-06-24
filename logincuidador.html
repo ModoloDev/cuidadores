@@ -1,18 +1,68 @@
 <html>
     <head>
-        <title>Login Cuidadores - Cuidadores</title>
+        <title>Login Regular - Cuidadores</title>
         <link rel="stylesheet" href="css/login.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+        <script src="js/login.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+        <link rel="shortcut icon" href="img/heartline.png" />
+        
     </head>
     <body>
-        <div class="main">
-                <h1 class="cuidadores"><span class="text-main">cuida</span><span class="text-primary">dores</span></h1>
-            <div class="login">
-                <a href="adicionarpaciente.html">
-                    <i id="plus" class="fa fa-plus" aria-hidden="true"></i>
-                    <h2>ADICIONAR PACIENTE</h2>
-                </a>
+        <nav class="menu">
+            <!-- <ul>
+                <li><a class="logo" href="index.html">cuida<span class="text-primary">dores</span></a></li>
+            </ul> -->
+            <a><i class="fa fa-bars" id="bars"></i></a>
+        </nav>
+
+
+        <div class="sidebarmenu">
+            <div class="close">
+                <a><i class="fa fa-close"></i></a>
+            </div>
+            <div class="menuPerfil">
+                <a href="perfil.html"><img src="img/avatar.png"></a>
+            </div>
+            <div class="menuLinks">
+                <nav>
+                    <a href="index.html"><ul><i class="fa fa-home menuButton"></i><h3>Home</h3></ul></a>
+                    <a href="quemsomos.html"><ul><i class="fa fa-user menuButton"></i><h3>Quem Somos</h3></ul></a>
+                </nav>
             </div>
         </div>
+          
+        <div class="main">
+            <div class="login-card">
+                <h1 class="cuidadores"><span class="text-main">PACIE</span><span class="text-primary">NTES</span></h1>
+                <div class="loginTabel">
+                    <a href="adicionarpaciente.html"><div class="login">
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+                        <div class="tooltip">ADICIONAR PACIENTE</div>
+                    </div></a>
+
+                    <a href="paciente.html"><div class="login">
+                        <i class="paciente">
+                            <ul><i class="fa fa-user"></i><h3>Nome Completo do Paciente</h3></ul>
+                        </i>
+                    </div></a>
+
+                    
+                </div>
+                <div class="login-card-footer">
+                    <p class="text-muted">2020 Copyright &copy; Cuidadores</p>
+                </div>
+            </div>
+        </div>
+        <script>
+            //Button Function
+            $('.fa-bars').click(function() {
+                $('.sidebarmenu').toggle("fast", "swing");
+            });
+            $('.close').click(function(){
+                $('.sidebarmenu').toggle("fast", "swing");
+            });
+        </script>
     </body>
 </html>
