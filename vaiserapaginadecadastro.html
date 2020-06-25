@@ -38,7 +38,29 @@
             <h1 class="cuidadores"><span class="text-main">CADA</span><span class="text-primary">STRO</span></h1>
             <div class="login-card">
 
+                <div class="dadosGerais">
+                    <h4>DADOS GERAIS</h4>
+
+                    <div class="input-group">
+                        <input id="inputEmail" type="text" placeholder="Email" >
+                        <i class="fa fa-envelope m-i material-icons" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="input-group">
+                        <input id= "inputSenha" type="password" placeholder="Senha" >
+                        <i class="fa fa-lock m-i material-icons" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="input-group">
+                        <input id="inputRepetirSenha" type="password" placeholder="Repetir Senha" >
+                        <i class="fa fa-lock m-i material-icons" aria-hidden="true"></i>
+                    </div>
+
+
+                </div>
+
                 <div class="space">
+                    <h4>TIPO DE USUÁRIO</h4>
                     <label class="container">
                         <h2><span class="text-main">PACI</span><span class="text-primary">ENTE</span></h2>
                         <input class="checkClass" id="checkmarkPaciente" type="radio" name="radio" style='width: 36px; height: 36px;' checked>
@@ -53,107 +75,103 @@
 
 
                 <div class="pacienteDiv">
-                    <form>
-                        <div class="inputs">
-                            <div class="input-group">
-                                <input id="inputName" type="text" placeholder="Nome Completo" maxlength="50" title="Nome Completo" required>
-                                <i class="fa fa-id-badge m-i material-icons" aria-hidden="true"></i>
-                            </div>
-
-                            <div class="input-group">
-                                <input class="CPF" type="text" placeholder="CPF" id="inputCPF" title="CPF" required>
-                                <i class="fa fa-id-card m-i material-icons" aria-hidden="true"></i>
-                            </div>
-
-                            <div class="input-group">
-                                <input id="inputEmail" type="text" placeholder="Email" required>
-                                <i class="fa fa-envelope m-i material-icons" aria-hidden="true"></i>
-                            </div>
-
-                            <div class="input-group">
-                                <input class="DataDeNascimento" type="text" id="inputDataDeNascimento" placeholder="Data de Nascimento" title="Data de Nascimento" required>
-                                <i class="fa fa-calendar m-i material-icons" aria-hidden="true"></i>
-                            </div>
-
-                            <div class="input-group">
-                                <input type="text" list="sexo" placeholder="Sexo" maxlength="1" pattern="[F, M, f, m]{1}" title="Sexo" required>
-                                <i class="fa fa-male m-i material-icons" aria-hidden="true"></i>
-                                <datalist id="sexo">
-                                    <option value="M">
-                                    <option value="F">
-                                </datalist>
-                            </div>
-
-                            <div class="input-group">
-                                <input required type="text" placeholder="Endereço" maxlength="100" title="Endereço" required>
-                                <i class="fa fa-map-marker m-i material-icons" aria-hidden="true"></i>
-                            </div>
-
-                            <div class="input-group">
-                                <input id= "inputSenha" type="password" placeholder="Senha" required>
-                                <i class="fa fa-lock m-i material-icons" aria-hidden="true"></i>
-                            </div>
-        
-                            <div class="input-group">
-                                <input id="inputRepetirSenha" type="password" placeholder="Repetir Senha" required>
-                                <i class="fa fa-lock m-i material-icons" aria-hidden="true"></i>
-                            </div>
+                    <div class="inputs">
+                        <!-- RESPONSAVEL -->
+                        <h4>DADOS DO RESPONSÁVEL</h4>
+                        <div class="input-group">
+                            <input id="inputName" type="text" placeholder="Nome Completo" maxlength="50" title="Nome Completo" >
+                            <i class="fa fa-id-badge m-i material-icons" aria-hidden="true"></i>
                         </div>
-                        <div class="btnClass"><button id="btnCadastro" type="submit" value="Submit" class="btn btn-primary">Cadastrar</button></div>
-                    </form>
+
+                        <div class="input-group">
+                            <input class="CPF" type="text" placeholder="CPF" id="inputCPF" title="CPF" >
+                            <i class="fa fa-id-card m-i material-icons" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="input-group">
+                            <input class="Telefone" id="inputTelefone" type="text" placeholder="Telefone">
+                            <i class="fa fa-phone m-i material-icons" aria-hidden="true"></i>
+                        </div>
+
+                        <!-- PACIENTE -->
+
+                        <h4>DADOS DO PACIENTE</h4>
+                        <div class="input-group">
+                            <input id="inputName" type="text" placeholder="Nome Completo" maxlength="50" title="Nome Completo" >
+                            <i class="fa fa-id-badge m-i material-icons" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="input-group">
+                            <input class="CPF" type="text" placeholder="CPF" id="inputCPF" title="CPF" >
+                            <i class="fa fa-id-card m-i material-icons" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="input-group">
+                            <input class="DataDeNascimento" type="text" id="inputDataDeNascimento" placeholder="Data de Nascimento" title="Data de Nascimento" >
+                            <i class="fa fa-calendar m-i material-icons" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="text" list="sexo" placeholder="Sexo" maxlength="9" title="Sexo" >
+                            <i class="fa fa-venus-mars m-i material-icons" aria-hidden="true"></i>
+                            <datalist id="sexo">
+                                <option value="Masculino">
+                                <option value="Feminino">
+                            </datalist>
+                        </div>
+
+                        <div class="input-group">
+                            <input  type="text" placeholder="Endereço" maxlength="100" title="Endereço" >
+                            <i class="fa fa-map-marker m-i material-icons" aria-hidden="true"></i>
+                        </div>
+
+                    </div>
                 </div>
 
                 <div class="cuidadorDiv" style="display: none;">
-                    <form>
-                        <div class="inputs">
-                            <div class="input-group">
-                                <input id="inputName" type="text" placeholder="Nome Completo" maxlength="50" title="Nome Completo" required>
-                                <i class="fa fa-id-badge m-i material-icons" aria-hidden="true"></i>
-                            </div>
-
-                            <div class="input-group">
-                                <input class="CPF" type="text" placeholder="CPF" id="inputCPF" title="CPF" required>
-                                <i class="fa fa-id-card m-i material-icons" aria-hidden="true"></i>
-                            </div>
-
-                            <div class="input-group">
-                                <input id="inputEmail" type="text" placeholder="Email" required>
-                                <i class="fa fa-envelope m-i material-icons" aria-hidden="true"></i>
-                            </div>
-
-                            <div class="input-group">
-                                <input class="DataDeNascimento" type="text" id="inputDataDeNascimento" placeholder="Data de Nascimento" title="Data de Nascimento" required>
-                                <i class="fa fa-calendar m-i material-icons" aria-hidden="true"></i>
-                            </div>
-
-                            <div class="input-group">
-                                <input type="text" list="sexo" placeholder="Sexo" maxlength="1" pattern="[F, M, f, m]{1}" title="Sexo" required>
-                                <i class="fa fa-male m-i material-icons" aria-hidden="true"></i>
-                                <datalist id="sexo">
-                                    <option value="M">
-                                    <option value="F">
-                                </datalist>
-                            </div>
-
-                            <div class="input-group">
-                                <input required type="text" placeholder="Endereço" maxlength="100" title="Endereço" required>
-                                <i class="fa fa-map-marker m-i material-icons" aria-hidden="true"></i>
-                            </div>
-
-                            <div class="input-group">
-                                <input id= "inputSenha" type="password" placeholder="Senha" required>
-                                <i class="fa fa-lock m-i material-icons" aria-hidden="true"></i>
-                            </div>
-        
-                            <div class="input-group">
-                                <input id="inputRepetirSenha" type="password" placeholder="Repetir Senha" required>
-                                <i class="fa fa-lock m-i material-icons" aria-hidden="true"></i>
-                            </div>
-
+                    <div class="inputs">
+                        <!-- CUIDADOR -->
+                        <h4>DADOS DO CUIDADOR</h4>
+                        <div class="input-group">
+                            <input id="inputName" type="text" placeholder="Nome Completo" maxlength="50" title="Nome Completo" >
+                            <i class="fa fa-id-badge m-i material-icons" aria-hidden="true"></i>
                         </div>
-                        <div class="btnClass"><button id="btnCadastro" type="submit" value="Submit" class="btn btn-primary">Cadastrar</button></div>
-                    </form>
+
+                        <div class="input-group">
+                            <input class="CPF" type="text" placeholder="CPF" id="inputCPF" title="CPF" >
+                            <i class="fa fa-id-card m-i material-icons" aria-hidden="true"></i>
+                        </div>
+
+
+                        <div class="input-group">
+                            <input class="DataDeNascimento" type="text" id="inputDataDeNascimento" placeholder="Data de Nascimento" title="Data de Nascimento" >
+                            <i class="fa fa-calendar m-i material-icons" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="text" list="genero" placeholder="Gênero" maxlength="9" title="Gênero" >
+                            <i class="fa fa-venus-mars m-i material-icons" aria-hidden="true"></i>
+                            <datalist id="genero">
+                                <option value="Masculino">
+                                <option value="Feminino">
+                                <option value="Outros">
+                            </datalist>
+                        </div>
+
+                        <div class="input-group">
+                            <input  type="text" placeholder="Endereço" maxlength="100" title="Endereço" >
+                            <i class="fa fa-map-marker m-i material-icons" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="input-group">
+                            <input class="Telefone" id="inputTelefone" type="text" placeholder="Telefone">
+                            <i class="fa fa-phone m-i material-icons" aria-hidden="true"></i>
+                        </div>
+
+                    </div>
                 </div>
+
+                <div class="btnClass"><button id="btnCadastro" type="submit" value="Submit" class="btn btn-primary">Cadastrar</button></div>
 
 
 
@@ -173,8 +191,8 @@
                     $('.cuidadorDiv').hide("slow", "swing");
                 }
                 else{
-                    $('.pacienteDiv').hide("slow", "swing");
                     $('.cuidadorDiv').show("slow", "swing");
+                    $('.pacienteDiv').hide("slow", "swing");
                 }
             });
 
@@ -182,6 +200,7 @@
             //Input
             $(".CPF").mask("000.000.000-00");
             $(".DataDeNascimento").mask("00/00/0000");
+            $(".Telefone").mask("(00) 000000000")
 
             //Button Function
             // $('.fa-bars').click(function() {
