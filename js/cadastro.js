@@ -2,17 +2,29 @@ const URL_API = 'http://localhost:3000'
 
 document.getElementById('btnCadastro').addEventListener('click', async () => {
 
-    var nome = "Teste1"
-    var cpf = document.getElementById('inputCPF').value;
     var email = document.getElementById('inputEmail').value;
     var senha = document.getElementById('inputSenha').value;
     var repetirSenha = document.getElementById('inputRepetirSenha').value;
     var checkmarkPaciente = document.getElementById('checkmarkPaciente').checked;
-    var checkmarkCuidador = document.getElementById('checkmarkCuidador').checked;
 
-    if (nome == '' || cpf == '' || email == '' || senha == '' || repetirSenha == '' || (checkmarkPaciente == false && checkmarkCuidador == false)) {
-        window.alert('Preencha todos os campos!');
-        return;
+    if (checkmarkPaciente) {
+        var nomeResp = document.getElementById('inputNomeResp').value;
+        var cpfResp = document.getElementById('inputCPFResp').value;
+        var telefoneResp = document.getElementById('inputTelefonePac').value;
+        var nomePac = document.getElementById('inputNomePac').value;
+        var cpfPac = document.getElementById('inputCPFPac').value;
+        var dataNascPac = document.getElementById('inputDataDeNascPac').value;
+        var sexoPc = document.getElementById('inputSexoPac').value;
+        var enderecoPac = document.getElementById('inputEnderecoPac').value;
+        var user = 'paciente'
+    } else {
+        var nomeCuid = document.getElementById('inputNameCuid').value;
+        var cpfCuid = document.getElementById('inputCPFCuid').value;
+        var dataNascCuid = document.getElementById('inputDataDeNascCuid').value;
+        var generoCuid = document.getElementById('inputGeneroCuid').value;
+        var enderecoCuid = document.getElementById('inputEnderecoCuid').value;
+        var telefoneCuid = document.getElementById('inputTelefoneCuid').value;
+        var user = 'cuidador'
     }
 
     if (senha != repetirSenha) {

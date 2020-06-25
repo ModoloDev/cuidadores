@@ -5,8 +5,14 @@ const Cuidador = mongoose.model('Cuidadores');
 exports.postCadastroPaciente = (req, res, next) => {
 
     // exemplo de body = {
-    //     "nome": "Nome do Paciente",
-    //     "cpf": "XXXXXXXXXXXXX",
+    //     "nomePaciente": "Nome do Paciente",
+    //     "cpfPaciente": "XXXXXXXXXXXXX",
+    //     "nomeResponsavel": "Nome do Responsavel",
+    //     "cpfResponsavel": "YYYYYYYYYYYYY",
+    //     "sexo": "M",
+    //     "dataNsc": "",
+    //     "telefone": "8899999-9999",
+    //     "endereco": "Rua Teste, 01 - Bairro Teste - UF - Brasil",
     //     "email": "exemplo@exemplo.com.br",
     //     "senha": "senha"
     // }
@@ -24,6 +30,10 @@ exports.postCadastroCuidador = (req, res, next) => {
     // exemplo de body sem pacientes = {
     //     "nome": "Nome do Cuidador",
     //     "cpf": "XXXXXXXXXXXXX",
+    //     "sexo": "F",
+    //     "dataNsc": "",
+    //     "telefone": "9988888-8888",
+    //     "endereco": "endereco": "Avenida Teste, 02 - Vila Teste - UF - Brasil",
     //     "email": "exemplo@exemplo.com.br",
     //     "senha": "senha"
     // }
@@ -31,6 +41,10 @@ exports.postCadastroCuidador = (req, res, next) => {
     // exemplo de body com pacientes = {
     //     "nome": "Nome do Cuidador",
     //     "cpf": "XXXXXXXXXXXXX",
+    //     "sexo": "F",
+    //     "dataNsc": "",
+    //     "telefone": "9988888-8888",
+    //     "endereco": "endereco": "Avenida Teste, 02 - Vila Teste - UF - Brasil",
     //     "email": "exemplo@exemplo.com.br",
     //     "senha": "senha",
     //     "pacientes": [cpf1, cpf2, cpf3, ...]
