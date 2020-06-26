@@ -4,7 +4,6 @@
         <link rel="stylesheet" href="css/cadastro.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="js/jquery.mask.min.js"></script>
-        <script src="js/cadastro.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
         <link rel="shortcut icon" href="img/heartline.png" />
@@ -63,7 +62,7 @@
                     <h4>TIPO DE USUÁRIO</h4>
                     <label class="container">
                         <h2><span class="text-main">PACI</span><span class="text-primary">ENTE</span></h2>
-                        <input class="checkClass" id="checkmarkPaciente" type="radio" name="radio" style='width: 36px; height: 36px;' checked>
+                        <input class="checkClass" id="checkmarkResponsavel" type="radio" name="radio" style='width: 36px; height: 36px;' checked>
                         <span class="checkmark"></span>
                     </label>
                     <label class="container">
@@ -89,12 +88,12 @@
                         </div>
 
                         <div class="input-group">
-                            <input class="Telefone" id="inputTelefonePac" type="text" placeholder="Telefone">
+                            <input class="Telefone" id="inputTelefoneResp" type="text" placeholder="Telefone">
                             <i class="fa fa-phone m-i material-icons" aria-hidden="true"></i>
                         </div>
 
                         <div class="input-group">
-                            <input class="DataDeNascimento" type="text" id="inputDataDeNascPac" placeholder="Data de Nascimento" title="Data de Nascimento" >
+                            <input class="DataDeNascimento" type="text" id="inputDataDeNascResp" placeholder="Data de Nascimento" title="Data de Nascimento" >
                             <i class="fa fa-calendar m-i material-icons" aria-hidden="true"></i>
                         </div>
 
@@ -159,7 +158,7 @@
 
             //Check
             $('.checkClass').click(function(){
-                if($('#checkmarkPaciente').prop("checked") == true){
+                if($('#checkmarkResponsavel').prop("checked") == true){
                     $('.pacienteDiv').show("slow", "swing");
                     $('.cuidadorDiv').hide("slow", "swing");
                 }
@@ -182,6 +181,8 @@
             // $('.close').click(function(){
             //     $('.sidebarmenu').toggle("fast", "swing");
             // });
+            
         </script>
+        <script src="js/cadastro.js"></script>
     </body>
 </html>
