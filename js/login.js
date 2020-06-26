@@ -44,7 +44,7 @@ document.getElementById('entrar-id').addEventListener('click', async () => {
                 if (Object.keys(user.data)[0] == 'cuidador') {
                     if (user.data.cuidador.senha == password) {
                         
-                        document.cookie('name=test')
+                        document.cookie = 'name=test'
                         console.log(document.cookie)
                     } else {
                         window.alert('Senha incorreta');
