@@ -43,8 +43,9 @@ document.getElementById('entrar-id').addEventListener('click', async () => {
             await response.json().then((user) => {
                 if (Object.keys(user.data)[0] == 'cuidador') {
                     if (user.data.cuidador.senha == password) {
-                        console.log('cuidador logado')
-                        // redirect pagina cuidador
+                        
+                        document.cookie('name=test')
+                        console.log(document.cookie)
                     } else {
                         window.alert('Senha incorreta');
                         return;
