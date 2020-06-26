@@ -135,6 +135,7 @@ nav>ul>li { display: inline-block; }
   
 .login-card{
   padding: 9%;
+  padding-top: 3%;
   padding-bottom: 0%;
 }
 .login-card-footer {

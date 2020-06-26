@@ -83,7 +83,7 @@ body{
     line-height: 100%;
 }
 
-.cuidadormais{
+/* .cuidadormais{
     position: absolute;
     right: 5px;
     bottom: 0px;
@@ -91,8 +91,18 @@ body{
 
 .infocuidador i{
     font-size: 4vw;
+    color: black;
+} */
+
+.infocuidadormais .adicionais{
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
 }
 
+.infomais p{
+    font-size: 24px;
+}
 
 
 
@@ -309,10 +319,21 @@ nav>ul>li { display: inline-block; }
         font-size: 12vw;
     }
 
-    .login .tooltip {
+    .infocuidador .nomecuidador{
+        font-size: 4vw;
+        top: 0px;
+    }
+
+    .infocuidadormais .adicionais{
+        font-size: 5vw;
         display: none;
     }
-    .loginTabel a i{
-        font-size: 12vw;
+    
+    .infomais p{
+        font-size: 5vw;
+    }
+
+    .cuidadores span{
+        font-size: 10vw;
     }
 }

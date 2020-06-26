@@ -14,7 +14,7 @@
             <!-- <ul>
                 <li><a class="logo" href="index.html">cuida<span class="text-primary">dores</span></a></li>
             </ul> -->
-            <a><i class="fa fa-bars" id="bars"></i></a>
+            <a href="loginresponsavel.html"><i class="fa fa-arrow-left" id="bars"></i></a>
         </nav>
 
 
@@ -48,14 +48,40 @@
                         <div class="infocuidador">
                             <img src="img/avatar.png">
                             <p class="nomecuidador">Nome Completo do Cuidador</p>
-                            <div class="cuidadormais down">
-                                <i class="fa fa-arrow-down"></i>
+                            <!-- <div class="cuidadormais down">
+                                <i class="fa fa-caret-square-down"></i>
                             </div>
                             <div class="cuidadormais up" style="display:none;">
-                                <i class="fa fa-arrow-up"></i>
-                            </div>
+                                <i class="fa fa-caret-square-up"></i>
+                            </div> -->
                             <div class="infocuidadormais" style="display:none;">
-                                <p>teste</p>
+                                <p class="adicionais">INFORMAÇÕES ADICIONAIS</p>
+                                <div class="infomais">
+                                    <p>Tantos Anos</p>
+                                    <p>Gênero</p>
+                                    <p>Telefone</p>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cuidador">
+                        <div class="infocuidador">
+                            <img src="img/avatar.png">
+                            <p class="nomecuidador">Nome Completo do Cuidador</p>
+                            <!-- <div class="cuidadormais down">
+                                <i class="fa fa-caret-square-down"></i>
+                            </div>
+                            <div class="cuidadormais up" style="display:none;">
+                                <i class="fa fa-caret-square-up"></i>
+                            </div> -->
+                            <div class="infocuidadormais" style="display:none;">
+                                <p class="adicionais">INFORMAÇÕES ADICIONAIS</p>
+                                <div class="infomais">
+                                    <p>Tantos Anos</p>
+                                    <p>Gênero</p>
+                                    <p>Telefone</p>  
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -71,19 +97,19 @@
         <script>
             //Botão Cuidador
             $('.infocuidador').click(function(){
-                $(this).children('.infocuidadormais').first().toggle("fast", "swing");
-                $(this).children('.up').first().toggle("fast", "swing");
-                $(this).children('.down').first().toggle("fast", "swing");
+                $(this).children('.infocuidadormais').first().toggle("slow", "swing");
+                // $(this).children('.up').first().toggle("fast");
+                // $(this).children('.down').first().toggle("fast");
                 
             })
 
             //Button Function
-            $('.fa-bars').click(function() {
-                $('.sidebarmenu').toggle("fast", "swing");
-            });
-            $('.close').click(function(){
-                $('.sidebarmenu').toggle("fast", "swing");
-            });
+            // $('.fa-bars').click(function() {
+            //     $('.sidebarmenu').toggle("fast", "linear");
+            // });
+            // $('.close').click(function(){
+            //     $('.sidebarmenu').toggle("fast", "linear");
+            // });
         </script>
     </body>
 </html>
