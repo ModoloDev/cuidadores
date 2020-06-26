@@ -17,7 +17,7 @@
 //     }
 // });
 
-const URL_API = 'http://localhost:3000'
+const URL_API = 'https://trabalhomodolo.rj.r.appspot.com'
 
 document.getElementById('entrar-id').addEventListener('click', async () => {
 
