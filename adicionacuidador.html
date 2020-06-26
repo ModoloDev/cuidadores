@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Login Cuidador - Cuidadores</title>
-        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="css/adicionacuidador.css">
         <script src="js/login.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,20 +35,33 @@
           
         <div class="main">
             <div class="login-card">
-                <h1 class="cuidadores"><span class="text-main">PACIE</span><span class="text-primary">NTES</span></h1>
-                <div class="loginTabel">
-                    <!-- <a href="adicionapaciente.html"><div class="login">
-                        <i class="fa fa-user-plus" aria-hidden="true"></i>
-                        <div class="tooltip">ADICIONAR PACIENTE</div>
-                    </div></a> -->
+                <h1 class="cuidadores"><span class="text-main">CUIDA</span><span class="text-primary">DORES</span></h1>
 
-                    <a href="paciente.html"><div class="login">
-                        <i class="paciente">
-                            <ul><i class="fa fa-user"></i><h3>Nome Completo do Paciente</h3></ul>
-                        </i>
-                    </div></a>
+                <div class="search-container">
+                    <input type="text" id="search-bar" placeholder="Busque por um cuidador">
+                </div>
 
-                    
+
+                <div class="cuidadorTabel">
+
+                    <div class="cuidador">
+                        <div class="infocuidador">
+                            <img src="img/avatar.png">
+                            <p class="nomecuidador">Nome Completo do Cuidador</p>
+                            <div class="cuidadormais down">
+                                <i class="fa fa-arrow-down"></i>
+                            </div>
+                            <div class="cuidadormais up" style="display:none;">
+                                <i class="fa fa-arrow-up"></i>
+                            </div>
+                            <div class="infocuidadormais" style="display:none;">
+                                <p>teste</p>
+                            </div>
+                        </div>
+                    </div>
+
+                 
+
                 </div>
                 <div class="login-card-footer">
                     <p class="text-muted">2020 Copyright &copy; Cuidadores</p>
@@ -56,6 +69,14 @@
             </div>
         </div>
         <script>
+            //Botão Cuidador
+            $('.infocuidador').click(function(){
+                $(this).children('.infocuidadormais').first().toggle("fast", "swing");
+                $(this).children('.up').first().toggle("fast", "swing");
+                $(this).children('.down').first().toggle("fast", "swing");
+                
+            })
+
             //Button Function
             $('.fa-bars').click(function() {
                 $('.sidebarmenu').toggle("fast", "swing");

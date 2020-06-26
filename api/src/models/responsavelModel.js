@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const schema = new Schema ({
+const schema = new Schema({
     nome: {
         type: String,
         required: true
@@ -11,21 +11,14 @@ const schema = new Schema ({
         required: true,
         unique: true
     },
-    genero: {
-        type: String,
-        required: true,
-    },
     dataNsc: {
         type: String,
         required: true
     },
     telefone: {
         type: String,
-        required: true
-    },
-    endereco: {
-        type: String,
-        required: true
+        required: true,
+        unique: true
     },
     email: {
         type: String,
@@ -38,9 +31,9 @@ const schema = new Schema ({
     },
     pacientes: [{
         type: String,
-        require: true,
+        required: true,
         default: ""
     }]
 });
 
-module.exports = mongoose.model('Cuidadores', schema);
+module.exports = mongoose.model('Responsaveis', schema);

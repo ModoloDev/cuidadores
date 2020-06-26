@@ -16,3 +16,49 @@
 //         idmySidenav.fadeOut("100");
 //     }
 // });
+
+const URL_API = 'http://localhost:3000'
+
+document.getElementById('entrar-id').addEventListener('click', async () => {
+
+    var email = document.getElementById('inputEmail').value;
+    var password = document.getElementById('inputPassword').value;
+
+    if (email == '' || password == ''){
+        window.alert('Preencha todos os campos');
+        return;
+    };
+
+    var payloadJSON = JSON.stringify({email: email});
+
+    await fetch(`${URL_API}/user/email`, {
+        method: "POST",
+        body: payloadJSON,
+        headers: {"Content-Type": "application/json; charset=UTF-8"}
+    }).then(async (response) => {
+        if (response.status == 400) {
+            window.alert('Nenhum cadastro encontrado com esse email');
+            return;
+        } else {
+            await response.json().then((user) => {
+                if (Object.keys(user.data)[0] == 'cuidador') {
+                    if (user.data.cuidador.senha == password) {
+                        console.log('cuidador logado')
+                        // redirect pagina cuidador
+                    } else {
+                        window.alert('Senha incorreta');
+                        return;
+                    }
+                } else {
+                    if (user.data.responsavel.senha == password) {
+                        console.log('responsavel logado')
+                        // redirect pagina responsavel
+                    } else {
+                        window.alert('Senha incorreta');
+                        return;
+                    }
+                }
+            });
+        }
+    });
+});

@@ -222,9 +222,14 @@ input:focus + .m-i {
     font-size: 12px;
 }
 
+
+#bars{
+    display: none;
+}
+
 /* Mobile Styling */
  
-@media (max-width: 800px) {
+@media (max-width: 1200px) {
     .login-image, .login-card {
         flex: 50%;
     }
@@ -237,6 +242,49 @@ input:focus + .m-i {
         font-size: 36px;
         line-height: 34px;
     }
+    .login-card-footer{
+        display: none;
+    }
+    #bars{
+        font-size: 12vw;
+        color: #1C1E4A;
+        position: fixed;
+        display: block;
+      }
+      #bars:hover{
+        color:  #41EAA7;
+      }
+      
+      .menu {
+        display: block;
+        position: absolute;
+        padding: 24px;
+        top: 0px;
+        left: 0px;
+      }
+      .menu{
+        font-size: 14px;
+      }
+      
+      .menu ul>li>a {
+        color: white;
+        text-transform: uppercase;
+        font-size: 14px;
+        margin-right: 24px;
+        font-weight: bold;
+        letter-spacing: .5px;
+      }
+      .menu ul>li>a:hover {
+        color: #41EAA7;
+      }
+      
+      nav>ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      nav>ul>li { display: inline-block; }
+
 }
 
 @media (max-width: 600px) {

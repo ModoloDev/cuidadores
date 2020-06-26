@@ -11,12 +11,15 @@ const schema = new Schema ({
         required: true,
         unique: true
     },
-    email: {
+    sexo: {
         type: String,
         required: true,
-        unique: true
     },
-    senha: {
+    dataNsc: {
+        type: String,
+        required: true
+    },
+    endereco: {
         type: String,
         required: true
     },

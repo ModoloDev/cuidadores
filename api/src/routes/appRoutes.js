@@ -4,8 +4,11 @@ const controller = require('../controller/appController');
 
 router.post('/cadastro/paciente', controller.postCadastroPaciente);
 router.post('/cadastro/cuidador', controller.postCadastroCuidador);
-router.post('/adiciona', controller.postAdicionaPacienteCuidador);
-router.post('/paciente', controller.getPaciente);
-router.post('/cuidador', controller.getCuidador);
+router.post('/cadastro/responsavel', controller.postCadastroResponsavel);
+router.post('/adiciona/cuidador', controller.postAdicionaPacienteCuidador);
+router.post('/adiciona/responsavel', controller.postAdicionaPacienteResponsavel);
+router.post('/user/cpf', controller.getUserCPF);
+router.post('/user/email', controller.getUserEmail);
+router.post('/cuidadores', controller.getCuidadores);
 
 module.exports = router;
