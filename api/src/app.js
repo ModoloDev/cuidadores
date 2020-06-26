@@ -25,6 +25,7 @@ mongoose.connect(settings.connectionStrig, { useNewUrlParser: true, useUnifiedTo
 //Models
 const Pacientes = require('./models/pacientesModel');
 const Cuidadores = require('./models/cuidadoresModel');
+const Responsaveis = require('./models/responsavelModel');
 
 //Rotes
 const guildRoute = require('./routes/appRoutes');

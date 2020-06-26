@@ -5,26 +5,44 @@ document.getElementById('btnCadastro').addEventListener('click', async () => {
     var email = document.getElementById('inputEmail').value;
     var senha = document.getElementById('inputSenha').value;
     var repetirSenha = document.getElementById('inputRepetirSenha').value;
-    var checkmarkPaciente = document.getElementById('checkmarkPaciente').checked;
+    var checkmarkResponsavel = document.getElementById('checkmarkResponsavel').checked;
 
-    if (checkmarkPaciente) {
-        var nomeResp = document.getElementById('inputNomeResp').value;
-        var cpfResp = document.getElementById('inputCPFResp').value;
-        var telefoneResp = document.getElementById('inputTelefonePac').value;
-        var nomePac = document.getElementById('inputNomePac').value;
-        var cpfPac = document.getElementById('inputCPFPac').value;
-        var dataNascPac = document.getElementById('inputDataDeNascPac').value;
-        var sexoPc = document.getElementById('inputSexoPac').value;
-        var enderecoPac = document.getElementById('inputEnderecoPac').value;
-        var user = 'paciente'
+    if (checkmarkResponsavel) {
+        var nome = document.getElementById('inputNomeResp').value;
+        var cpf = document.getElementById('inputCPFResp').value;
+        var telefone = document.getElementById('inputTelefoneResp').value;
+        var dataNsc = document.getElementById('inputDataDeNascResp').value;
+
+        var user = 'responsavel'
+
+        var payloadJSON = JSON.stringify({
+            "nome": nome,
+            "cpf": cpf,
+            "dataNsc": dataNsc,
+            "telefone": telefone,
+            "email": email,
+            "senha": senha
+        })
+
     } else {
-        var nomeCuid = document.getElementById('inputNameCuid').value;
-        var cpfCuid = document.getElementById('inputCPFCuid').value;
-        var dataNascCuid = document.getElementById('inputDataDeNascCuid').value;
-        var generoCuid = document.getElementById('inputGeneroCuid').value;
-        var enderecoCuid = document.getElementById('inputEnderecoCuid').value;
-        var telefoneCuid = document.getElementById('inputTelefoneCuid').value;
+        var nome = document.getElementById('inputNameCuid').value;
+        var cpf = document.getElementById('inputCPFCuid').value;
+        var dataNsc = document.getElementById('inputDataDeNascCuid').value;
+        var genero = document.getElementById('inputGeneroCuid').value;
+        var endereco = document.getElementById('inputEnderecoCuid').value;
+        var telefone = document.getElementById('inputTelefoneCuid').value;
         var user = 'cuidador'
+
+        var payloadJSON = JSON.stringify({
+            "nome": nome,
+            "cpf": cpf,
+            "genero": genero,
+            "dataNsc": dataNsc,
+            "telefone": telefone,
+            "endereco": endereco,
+            "email": email,
+            "senha": senha
+        })
     }
 
     if (senha != repetirSenha) {
@@ -39,20 +57,26 @@ document.getElementById('btnCadastro').addEventListener('click', async () => {
         headers: {"Content-Type": "application/json; charset=UTF-8"}
     })
     await verif.json().then(data => {
+        if (data.data === undefined) {return;}
         if (Object.keys(data.data).length !== 0){
-            window.alert('Ja existe uma conta com esse CPF ou Email');
+            window.alert('Ja existe uma conta com esse CPF');
             throw new Error("Cadastro repetido");
         }
     })
 
-    if (checkmarkPaciente) {var user = 'paciente'} else {var user = 'cuidador'};
-
-    var payloadJSON = JSON.stringify({
-        "nome": nome,
-        "cpf": cpf,
-        "email": email,
-        "senha": senha
-    });
+    var payloadJSONVerif = JSON.stringify({email: email})
+    var verif = await fetch(`${URL_API}/user/email`, {
+        method: 'POST',
+        body: payloadJSONVerif,
+        headers: {"Content-Type": "application/json; charset=UTF-8"}
+    })
+    await verif.json().then(data => {
+        if (data.data === undefined) {return;}
+        if (Object.keys(data.data).length !== 0){
+            window.alert('Ja existe uma conta com esse Email');
+            throw new Error("Cadastro repetido");
+        }
+    })
 
     fetch(`${URL_API}/cadastro/${user}`, {
         method: 'POST',

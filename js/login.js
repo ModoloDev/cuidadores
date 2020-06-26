@@ -41,18 +41,18 @@ document.getElementById('entrar-id').addEventListener('click', async () => {
             return;
         } else {
             await response.json().then((user) => {
-                if (Object.keys(user.data)[0] == 'paciente') {
-                    if (user.data.paciente.senha == password) {
-                        console.log('paciente logado')
-                        // redirect pagina do paciente
+                if (Object.keys(user.data)[0] == 'cuidador') {
+                    if (user.data.cuidador.senha == password) {
+                        console.log('cuidador logado')
+                        // redirect pagina cuidador
                     } else {
                         window.alert('Senha incorreta');
                         return;
                     }
                 } else {
-                    if (user.data.cuidador.senha == password) {
-                        console.log('cuidador logado')
-                        // redirect pagina cuidador
+                    if (user.data.responsavel.senha == password) {
+                        console.log('responsavel logado')
+                        // redirect pagina responsavel
                     } else {
                         window.alert('Senha incorreta');
                         return;
