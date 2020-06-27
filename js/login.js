@@ -44,7 +44,7 @@ document.getElementById('entrar-id').addEventListener('click', async () => {
                 if (Object.keys(user.data)[0] == 'cuidador') {
                     if (user.data.cuidador.senha == password) {
 
-                        var date = new Data();
+                        var date = new Date();
                         date.setDate(date.getDate() + 2);
                         console.log(date)
                         console.log(date.toUTCString())
