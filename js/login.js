@@ -58,7 +58,7 @@ document.getElementById('entrar-id').addEventListener('click', async () => {
 
                         document.cookie = `user=${userInfoStr};expires=${expires.toUTCString()};path=/`;
 
-                        window.location.href = 'https://lucasmodolo22.github.io/cuidadores/logincuidador'
+                        //window.location.href = 'https://lucasmodolo22.github.io/cuidadores/logincuidador'
                         
                     } else {
                         window.alert('Senha incorreta');
