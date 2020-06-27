@@ -49,7 +49,7 @@ document.getElementById('entrar-id').addEventListener('click', async () => {
                         time += 2
                         expires.setTime(time);
 
-                        var userInfo = JSON.stringify(user.data)
+                        var userInfo = JSON.stringify(user.data.cuidador.cpf)
                         var userInfoStr = btoa(userInfo)
 
                         document.cookie = `user=${userInfoStr};expires=${expires.toUTCString()};path=/`;
