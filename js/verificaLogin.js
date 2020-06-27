@@ -1,5 +1,3 @@
-const { assert } = require("console")
-
 var userInfo = document.cookie
 try {
     userInfo = atob(userInfo.split('=')[1])
