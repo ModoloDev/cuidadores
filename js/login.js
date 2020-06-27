@@ -44,14 +44,19 @@ document.getElementById('entrar-id').addEventListener('click', async () => {
                 if (Object.keys(user.data)[0] == 'cuidador') {
                     if (user.data.cuidador.senha == password) {
 
-                        var info = btoa(user.data)
-
                         var expires = new Date;
                         var time = expires.getDate();
                         time += 2
                         expires.setTime(time);
 
-                        document.cookie = `user=${btoa(JSON.stringify(user.data))};expires=${expires.toUTCString()};path=/`;
+                        console.log(user.data[0])
+                        var userInfo = JSON.stringify(user.data[0])
+                        console.log(userInfo)
+
+                        var userInfoStr = btoa(userInfo)
+                        console.log(userInfoStr)
+
+                        document.cookie = `user=${userInfoStr};expires=${expires.toUTCString()};path=/`;
 
                         window.location.href = 'https://lucasmodolo22.github.io/cuidadores/logincuidador'
                         
