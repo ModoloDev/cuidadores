@@ -1,9 +1,18 @@
+const { assert } = require("console")
+
 var userInfo = document.cookie
 try {
     userInfo = atob(userInfo.split('=')[1])
     userInfo = JSON.parse(userInfo)
 } catch(error) {
     window.location.href = 'https://lucasmodolo22.github.io/cuidadores'
+}
+
+const url = window.location.pathname
+var user = url.slice(-8)
+
+if (user != 'cuidador'){
+    var user = url.slice(-11)
 }
 
 verificaUser = async (userInfo) => {
@@ -25,6 +34,15 @@ verificaUser = async (userInfo) => {
         if (data.data === undefined) {return;}
         if (Object.keys(data.data).length == 0) {
             window.location.href = 'https://lucasmodolo22.github.io/cuidadores'
+        }
+        if (user == 'cuidador') {
+            if (Object.keys(data.data.cuidador) == 0) {
+                window.location.href = 'https://lucasmodolo22.github.io/cuidadores'
+            }
+        } else {
+            if (Object.keys(data.data.responsavel) == 0) {
+                window.location.href = 'https://lucasmodolo22.github.io/cuidadores'
+            }
         }
     })
 }
