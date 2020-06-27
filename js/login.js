@@ -41,11 +41,12 @@ document.getElementById('entrar-id').addEventListener('click', async () => {
             return;
         } else {
             await response.json().then((user) => {
+
+                var date = new Date();
+                date.setDate(date.getDate() + 2);
+
                 if (Object.keys(user.data)[0] == 'cuidador') {
                     if (user.data.cuidador.senha == password) {
-
-                        var date = new Date();
-                        date.setDate(date.getDate() + 2);
 
                         var userInfo = JSON.stringify(user.data.cuidador)
                         var userInfoStr = btoa(userInfo)
@@ -60,8 +61,14 @@ document.getElementById('entrar-id').addEventListener('click', async () => {
                     }
                 } else {
                     if (user.data.responsavel.senha == password) {
-                        console.log('responsavel logado')
-                        // redirect pagina responsavel
+                        
+                        var userInfo = JSON.stringify(user.data.responsavel)
+                        var userInfoStr = btoa(userInfo)
+
+                        document.cookie = `user=${userInfoStr};expires=${date.toUTCString()};path=/;`;
+
+                        window.location.href = 'https://lucasmodolo22.github.io/cuidadores/loginresponsavel'
+
                     } else {
                         window.alert('Senha incorreta');
                         return;
