@@ -45,9 +45,16 @@ document.getElementById('entrar-id').addEventListener('click', async () => {
                     if (user.data.cuidador.senha == password) {
 
                         var info = btoa(user.data)
+
+                        var expires = new Date;
+                        var time = expires.getDate();
+                        time += 2
+                        expires.setTime(time);
+
+                        document.cookie = `user=${btoa(user.data)};expires=${expires.toUTCString()};path=/`;
+
+                        window.location.href = 'https://lucasmodolo22.github.io/cuidadores/logincuidador'
                         
-                        document.cookie = `user=${info}`
-                        console.log(document.cookie)
                     } else {
                         window.alert('Senha incorreta');
                         return;
