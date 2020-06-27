@@ -1,12 +1,20 @@
 var userInfo = document.cookie
-userInfo = atob(userInfo.split('=')[1])
-userInfo = JSON.parse(userInfo)
+try {
+    userInfo = atob(userInfo.split('=')[1])
+    userInfo = JSON.parse(userInfo)
+} catch(error) {
+    window.location.href = 'https://lucasmodolo22.github.io/cuidadores'
+}
 
 verificaUser = async (userInfo) => {
 
     var API_URL = 'https://trabalhomodolo.rj.r.appspot.com'
 
-    payloadJSON = JSON.stringify({cpf: userInfo.cpf})
+    try {
+        payloadJSON = JSON.stringify({cpf: userInfo.cpf})
+    } catch {
+        window.location.href = 'https://lucasmodolo22.github.io/cuidadores'
+    }
 
     var verif = await fetch(`${API_URL}/user/cpf`, {
         method: 'POST',
@@ -19,7 +27,7 @@ verificaUser = async (userInfo) => {
             window.location.href = 'https://lucasmodolo22.github.io/cuidadores'
         }
     })
-    console.log('verificado')
 }
 
 verificaUser(userInfo);
+console.log('verificado')
