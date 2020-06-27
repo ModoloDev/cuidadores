@@ -34,11 +34,11 @@ verificaUser = async (userInfo) => {
             window.location.href = 'https://lucasmodolo22.github.io/cuidadores'
         }
         if (user == 'cuidador') {
-            if (Object.keys(data.data.cuidador) == 0) {
+            if (data.data.cuidador === undefined) {
                 window.location.href = 'https://lucasmodolo22.github.io/cuidadores'
             }
         } else {
-            if (Object.keys(data.data.responsavel) == 0) {
+            if (data.data.responsavel === undefined) {
                 window.location.href = 'https://lucasmodolo22.github.io/cuidadores'
             }
         }
