@@ -6,15 +6,15 @@ userInfo = JSON.parse(userInfo).catch(() => {
     window.location.href = 'https://lucasmodolo22.github.io/cuidadores'
 })
 
-const URL_API = 'https://trabalhomodolo.rj.r.appspot.com'
-
 verificaUser = async () => {
+
+    var API_URL = 'https://trabalhomodolo.rj.r.appspot.com'
 
     payloadJSON = JSON.stringify({cpf: userInfo.cpf}).catch(() => {
         window.location.href = 'https://lucasmodolo22.github.io/cuidadores'
     })
 
-    var verif = await fetch(`${URL_API}/user/cpf`, {
+    var verif = await fetch(`${API_URL}/user/cpf`, {
         method: 'POST',
         body: payloadJSON,
         headers: {"Content-Type": "application/json; charset=UTF-8"}
