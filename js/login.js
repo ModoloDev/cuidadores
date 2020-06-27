@@ -49,7 +49,7 @@ document.getElementById('entrar-id').addEventListener('click', async () => {
                         console.log(date)
                         console.log(date.toUTCString())
 
-                        var userInfo = JSON.stringify(user.data.cuidador.cpf)
+                        var userInfo = JSON.stringify(user.data.cuidador)
                         console.log(userInfo)
                         var userInfoStr = btoa(userInfo)
                         console.log(userInfoStr)
@@ -57,7 +57,7 @@ document.getElementById('entrar-id').addEventListener('click', async () => {
 
                         document.cookie = `user=${userInfoStr};`;
 
-                        //window.location.href = 'https://lucasmodolo22.github.io/cuidadores/logincuidador'
+                        window.location.href = 'https://lucasmodolo22.github.io/cuidadores/logincuidador'
                         
                     } else {
                         window.alert('Senha incorreta');
