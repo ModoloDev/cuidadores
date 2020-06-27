@@ -1,8 +1,10 @@
-const userInfo = document.cookie
+var userInfo = document.cookie
 userInfo = atob(userInfo.split('=')[1])
 userInfo = JSON.parse(userInfo)
 
-verificaUser = async () => {
+verificaUser(userInfo);
+
+verificaUser = async (userInfo) => {
 
     var API_URL = 'https://trabalhomodolo.rj.r.appspot.com'
 
