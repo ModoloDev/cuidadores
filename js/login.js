@@ -51,7 +51,7 @@ document.getElementById('entrar-id').addEventListener('click', async () => {
                         time += 2
                         expires.setTime(time);
 
-                        document.cookie = `user=${btoa(user.data)};expires=${expires.toUTCString()};path=/`;
+                        document.cookie = `user=${btoa(JSON.stringify(user.data))};expires=${expires.toUTCString()};path=/`;
 
                         window.location.href = 'https://lucasmodolo22.github.io/cuidadores/logincuidador'
                         
