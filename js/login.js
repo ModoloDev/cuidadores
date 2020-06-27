@@ -46,16 +46,11 @@ document.getElementById('entrar-id').addEventListener('click', async () => {
 
                         var date = new Date();
                         date.setDate(date.getDate() + 2);
-                        console.log(date)
-                        console.log(date.toUTCString())
 
                         var userInfo = JSON.stringify(user.data.cuidador)
-                        console.log(userInfo)
                         var userInfoStr = btoa(userInfo)
-                        console.log(userInfoStr)
-                        console.log(typeof(userInfoStr))
 
-                        document.cookie = `user=${userInfoStr};`;
+                        document.cookie = `user=${userInfoStr};expires=${date.toUTCString()};path=/;`;
 
                         window.location.href = 'https://lucasmodolo22.github.io/cuidadores/logincuidador'
                         
