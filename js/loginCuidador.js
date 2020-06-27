@@ -1,4 +1,4 @@
-var userInfo = atob(document.cookie.split(';'))
+var userInfo = document.cookie.split(';')[1]
 console.log(userInfo);
-userInfo = userInfo.split('=')[1]
+userInfo = atob(userInfo.split('=')[1])
 console.log(userInfo)
