@@ -35,13 +35,12 @@
           
         <div class="main">
             <div class="login-card">
-                <h1 class="cuidadores text-main">NOME COMPLETO DO PACIENTE</h1>
+                <h1 id="outputNomePac"class="cuidadores text-main"></h1>
 
                 <div class="infopaciente">
-                    <p>Sexo</p>
-                    <p>Endereço</p>
-                    <p>Telefone</p>
-                    <p>Data de Nascimento</p>
+                    <p id="outputSexoPac"></p>
+                    <p id="outputEnderecoPac"></p>
+                    <p id="outputDataNscPac"></p>
                 </div>
 
                 <p class="cuidadorestitulo"><span class="text-main">CUIDA</span><span class="text-primary">DORES</span></p>
@@ -51,7 +50,7 @@
                     <div class="cuidador">
                         <div class="infocuidador">
                             <img src="img/avatar.png">
-                            <p class="nomecuidador">Nome Completo do Cuidador</p>
+                            <p class="nomecuidador" id="outputNomeCuid"></p>
                             <!-- <div class="cuidadormais down">
                                 <i class="fa fa-caret-square-down"></i>
                             </div>
@@ -61,9 +60,9 @@
                             <div class="infocuidadormais" style="display:none;">
                                 <p class="adicionais">INFORMAÇÕES ADICIONAIS</p>
                                 <div class="infomais">
-                                    <p>Tantos Anos</p>
-                                    <p>Gênero</p>
-                                    <p>Telefone</p>  
+                                    <p id="outputDataNscCuid"></p>
+                                    <p id="outputGeneroCuid"></p>
+                                    <p id="outputTelefoneCuid"></p>  
                                 </div>
                             </div>
                         </div>
