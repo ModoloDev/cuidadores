@@ -13,9 +13,9 @@ if (user != 'cuidador'){
     var user = url.slice(-11)
 }
 
-verificaUser = async (userInfo) => {
+const URL_API = 'https://trabalhomodolo.rj.r.appspot.com'
 
-    var API_URL = 'https://trabalhomodolo.rj.r.appspot.com'
+verificaUser = async (userInfo) => {
 
     try {
         payloadJSON = JSON.stringify({cpf: userInfo.cpf})
@@ -23,7 +23,7 @@ verificaUser = async (userInfo) => {
         window.location.href = 'https://lucasmodolo22.github.io/cuidadores'
     }
 
-    var verif = await fetch(`${API_URL}/user/cpf`, {
+    var verif = await fetch(`${URL_API}/user/cpf`, {
         method: 'POST',
         body: payloadJSON,
         headers: {"Content-Type": "application/json; charset=UTF-8"}
