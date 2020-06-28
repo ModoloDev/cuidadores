@@ -20,28 +20,6 @@ body{
   }
 
 
-/* Buscador */
-.search-container{
-    width: 100%;
-    display: block;
-    margin: 0 auto;
-}  
-#search-bar{
-    margin: 0 auto;
-    width: 100%;
-    height: 45px;
-    padding: 0 20px;
-    font-size: 1rem;
-    border: 1px solid #D0CFCE;
-    outline: none;
-    margin-top: 5%;
-}
-#search-bar:focus{
-    border: 1px solid black;
-    transition: 0.35s ease;
-    color:black;
-}
-
 
 
   
@@ -104,6 +82,23 @@ body{
     font-size: 24px;
 }
 
+.cuidadorestitulo{
+    text-align: center;
+    font-size: 34px;
+    font-weight: bold;
+}
+
+.infopaciente{
+    margin: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.infopaciente p{
+    font-size: 24px;
+}
+
+
 
 
 h1{
@@ -148,6 +143,9 @@ a{
 .cuidadores{
     text-align: center;
     position: inherit;
+    line-height: 100%;
+    margin-top: 0%;
+    font-size: 2vw;
 }
 
 
@@ -274,9 +272,6 @@ nav>ul>li { display: inline-block; }
         width: 100%;
         border-radius: 0px;
     }
-    .main *{
-        font-size:12vw
-    }
     /* .login-card-footer {
         display: block;
         position: absolute;
@@ -333,7 +328,10 @@ nav>ul>li { display: inline-block; }
         font-size: 5vw;
     }
 
-    .cuidadores span{
-        font-size: 10vw;
+    .cuidadores{
+        font-size: 7vw;
+    }
+    .cuidadorestitulo{
+        font-size: 7vw;
     }
 }
