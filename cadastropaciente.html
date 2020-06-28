@@ -9,12 +9,13 @@
         <link rel="shortcut icon" href="img/heartline.png" />
         
     </head>
-    <body id="responsavel">
+    <body id="responsavel" class="identificacao">
+        <script src="js/verificaLogin.js"></script>
         <nav class="menu">
             <!-- <ul>
                 <li><a class="logo" href="index.html">cuida<span class="text-primary">dores</span></a></li>
             </ul> -->
-            <a href="loginpaciente.html"><i class="fa fa-arrow-left" id="bars"></i></a>
+            <a href="loginresponsavel.html"><i class="fa fa-arrow-left" id="bars"></i></a>
         </nav>
 
 
@@ -44,22 +45,22 @@
 
                         <h4>DADOS DO PACIENTE</h4>
                         <div class="input-group">
-                            <input id="inputNomePac" type="text" placeholder="Nome Completo" maxlength="50" title="Nome Completo" >
+                            <input id="inputNome" type="text" placeholder="Nome Completo" maxlength="50" title="Nome Completo" >
                             <i class="fa fa-id-badge m-i material-icons" aria-hidden="true"></i>
                         </div>
 
                         <div class="input-group">
-                            <input class="CPF" type="text" placeholder="CPF" id="inputCPFPac" title="CPF" >
+                            <input class="CPF" type="text" placeholder="CPF" id="inputCPF" title="CPF" >
                             <i class="fa fa-id-card m-i material-icons" aria-hidden="true"></i>
                         </div>
 
                         <div class="input-group">
-                            <input class="DataDeNascimento" type="text" id="inputDataDeNascPac" placeholder="Data de Nascimento" title="Data de Nascimento" >
+                            <input class="DataDeNascimento" type="text" id="inputDataDeNasc" placeholder="Data de Nascimento" title="Data de Nascimento" >
                             <i class="fa fa-calendar m-i material-icons" aria-hidden="true"></i>
                         </div>
 
                         <div class="input-group">
-                            <input type="text" list="sexo" placeholder="Sexo" maxlength="9" title="Sexo" id="inputSexoPac">
+                            <input type="text" list="sexo" placeholder="Sexo" maxlength="9" title="Sexo" id="inputSexo">
                             <i class="fa fa-venus-mars m-i material-icons" aria-hidden="true"></i>
                             <datalist id="sexo">
                                 <option value="Masculino">
@@ -68,7 +69,7 @@
                         </div>
 
                         <div class="input-group">
-                            <input  type="text" placeholder="Endereço" maxlength="100" title="Endereço" id="inputEnderecoPac">
+                            <input  type="text" placeholder="Endereço" maxlength="100" title="Endereço" id="inputEndereco">
                             <i class="fa fa-map-marker m-i material-icons" aria-hidden="true"></i>
                         </div>
 
@@ -114,5 +115,6 @@
             //     $('.sidebarmenu').toggle("fast", "swing");
             // });
         </script>
+        <script src="js/cadastroPaciente.js"></script>
     </body>
 </html>

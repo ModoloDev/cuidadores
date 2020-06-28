@@ -88,7 +88,7 @@ exports.postAdicionaPacienteCuidador = (req, res, next) => {
             res.status(400).send({message: `Erro ao atribuir paciente! - ${e}`, data: data});
         })
     }).catch(e => {
-        res.status(400).send({message: `Erro ao encontrar cuidador - ${e}`, data: req.body.cuidador.cpf});
+        res.status(400).send({message: `Erro ao encontrar cuidador - ${e}`, data: req.body.cuidador});
     })
 }
 
@@ -115,10 +115,9 @@ exports.postAdicionaPacienteResponsavel = (req, res, next) => {
         }, data).then(() => {
             res.status(200).send({message: "Paciente atribuido com sucesso!"});
         }).catch(e => {
-            res.staus(400).send({message: `Erro ao atribuir paciente! - ${e}`, data: req.body.cuidador.cpf});
+            res.staus(400).send({message: `Erro ao atribuir paciente! - ${e}`, data: req.body.responsavel});
         })
     })
-
 }
 
 exports.getUserCPF = async (req, res, next) => {

@@ -1,3 +1,5 @@
+const URL_API = 'https://trabalhomodolo.rj.r.appspot.com'
+
 var userInfo = document.cookie
 try {
     userInfo = atob(userInfo.split('=')[1])
@@ -6,14 +8,7 @@ try {
     window.location.href = 'https://lucasmodolo22.github.io/cuidadores'
 }
 
-var user = document.getElementById('cuidador');
-if (user == null) {
-    user = 'responsavel'
-} else {
-    user = 'cuidador'
-}
-
-const URL_API = 'https://trabalhomodolo.rj.r.appspot.com'
+var user = document.getElementsByClassName('identificacao')[0].id;
 
 verificaUser = async (userInfo, user) => {
 
