@@ -17,7 +17,6 @@
             <a href="loginresponsavel.html"><i class="fa fa-arrow-left" id="bars"></i></a>
         </nav>
 
-
         <div class="sidebarmenu">
             <div class="close">
                 <a><i class="fa fa-close"></i></a>
@@ -35,66 +34,28 @@
           
         <div class="main">
             <div class="login-card">
-                <h1 class="cuidadores text-main">NOME COMPLETO DO PACIENTE</h1>
+                <h1 id="outputNomePac"class="cuidadores text-main"></h1>
 
                 <div class="infopaciente">
-                    <p>Sexo</p>
-                    <p>Endereço</p>
-                    <p>Telefone</p>
-                    <p>Data de Nascimento</p>
+                    <p id="outputSexoPac"></p>
+                    <p id="outputEnderecoPac"></p>
+                    <p id="outputDataNscPac"></p>
                 </div>
 
                 <p class="cuidadorestitulo"><span class="text-main">CUIDA</span><span class="text-primary">DORES</span></p>
 
                 <div class="cuidadorTabel">
-
-                    <div class="cuidador">
-                        <div class="infocuidador">
-                            <img src="img/avatar.png">
-                            <p class="nomecuidador">Nome Completo do Cuidador</p>
-                            <!-- <div class="cuidadormais down">
-                                <i class="fa fa-caret-square-down"></i>
-                            </div>
-                            <div class="cuidadormais up" style="display:none;">
-                                <i class="fa fa-caret-square-up"></i>
-                            </div> -->
-                            <div class="infocuidadormais" style="display:none;">
-                                <p class="adicionais">INFORMAÇÕES ADICIONAIS</p>
-                                <div class="infomais">
-                                    <p>Tantos Anos</p>
-                                    <p>Gênero</p>
-                                    <p>Telefone</p>  
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                 
-
+                    <a href="adicionacuidador.html"><div class="cuidador">
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+                        <div class="tooltip">ADICIONAR PACIENTE</div>
+                    </div></a>
+                    <ul id="showCuidador"></ul>                
                 </div>
                 <div class="login-card-footer">
                     <p class="text-muted">2020 Copyright &copy; Cuidadores</p>
                 </div>
             </div>
         </div>
-        <script>
-            //Botão Cuidador
-            $('.infocuidador').click(function(){
-                $(this).children('.infocuidadormais').first().toggle("slow", "swing");
-                // $(this).children('.up').first().toggle("fast");
-                // $(this).children('.down').first().toggle("fast");
-                
-            })
-
-            //Button Function
-            // $('.fa-bars').click(function() {
-            //     $('.sidebarmenu').toggle("fast", "linear");
-            // });
-            // $('.close').click(function(){
-            //     $('.sidebarmenu').toggle("fast", "linear");
-            // });
-        </script>
         <script src="js/paciente.js"></script>
     </body>
 </html>
