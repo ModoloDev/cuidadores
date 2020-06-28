@@ -100,11 +100,21 @@ body{
     text-align: center;
 }
 
+.infomais{
+    margin-top: 10%;
+}
+
 .infomais p{
     font-size: 24px;
 }
 
 
+.cuidadoradd{
+    text-align: right;
+}
+.cuidadoradd i{
+    font-size: 3vw;
+}
 
 h1{
     font-size:3vw
@@ -257,6 +267,19 @@ nav>ul>li { display: inline-block; }
 .menuLinks h3:hover{
     color: #41EAA7;
 }
+
+.logout{
+    top: 15px;
+    left: 15px;
+    position: absolute;
+    color: #1C1E4A;
+    font-size: 3vw;
+    transform: rotate(180deg);
+}
+
+.logout i:hover{
+    color: #41EAA7;
+}
     
 
 /* Mobile Styling */
@@ -300,6 +323,9 @@ nav>ul>li { display: inline-block; }
         width: 70%;
     }
     .sidebarmenu .close{
+        font-size: 12vw;
+    }
+    .sidebarmenu .logout{
         font-size: 12vw;
     }
     .sidebarmenu .menuPerfil img{
