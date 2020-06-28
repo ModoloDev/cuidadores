@@ -1,3 +1,5 @@
+const URL_API = 'https://trabalhomodolo.rj.r.appspot.com'
+
 var userInfo = document.cookie
 try {
     userInfo = atob(userInfo.split('=')[1])
@@ -7,8 +9,6 @@ try {
 }
 
 var user = document.getElementsByClassName('identificacao')[0].id;
-
-const URL_API = 'https://trabalhomodolo.rj.r.appspot.com'
 
 verificaUser = async (userInfo, user) => {
 
