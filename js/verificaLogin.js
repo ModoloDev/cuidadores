@@ -1,6 +1,6 @@
 const URL_API = 'https://trabalhomodolo.rj.r.appspot.com'
 
-var userInfo = 'a=eyJwYWNpZW50ZXMiOltdLCJfaWQiOiI1ZWY1NzJjOTE2Y2YxZTUyYjRkNjI4MTYiLCJub21lIjoiUmVzcG9uc2F2ZWwgZGEgU2lsdmEiLCJjcGYiOiIxMjMuNDU2Ljc4OS0wMCIsImRhdGFOc2MiOiIyMS8zMS8zMjEyIiwidGVsZWZvbmUiOiIoMzEpIDIyMTMxMjMxMiIsImVtYWlsIjoidGVzdGVAdGVzdGUuY29tLmJyIiwic2VuaGEiOiIxMjMiLCJfX3YiOjB9'
+var userInfo = document.cookie
 try {
     userInfo = atob(userInfo.split('=')[1])
     userInfo = JSON.parse(userInfo)
