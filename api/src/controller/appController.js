@@ -160,8 +160,6 @@ exports.getCuidadores = (req, res, next) => {
 
     Cuidador.find({}).then(data => {
         data.forEach((user) => {
-            user.pacientes = undefined;
-            user.cpf = undefined;
             user.senha = undefined;
         })
         res.status(200).send({data: data});
