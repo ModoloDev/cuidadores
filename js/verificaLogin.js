@@ -6,16 +6,16 @@ try {
     window.location.href = 'https://lucasmodolo22.github.io/cuidadores'
 }
 
-const url = window.location.pathname
-var user = url.slice(-8)
-
-if (user != 'cuidador'){
-    var user = url.slice(-11)
+var user = document.getElementById('cuidador');
+if (user == null) {
+    user = 'responsavel'
+} else {
+    user = 'cuidador'
 }
 
 const URL_API = 'https://trabalhomodolo.rj.r.appspot.com'
 
-verificaUser = async (userInfo) => {
+verificaUser = async (userInfo, user) => {
 
     try {
         payloadJSON = JSON.stringify({cpf: userInfo.cpf})
@@ -37,7 +37,7 @@ verificaUser = async (userInfo) => {
             if (data.data.cuidador === undefined) {
                 window.location.href = 'https://lucasmodolo22.github.io/cuidadores'
             }
-        } else {
+        } else if (user == 'responsavel') {
             if (data.data.responsavel === undefined) {
                 window.location.href = 'https://lucasmodolo22.github.io/cuidadores'
             }
@@ -45,5 +45,5 @@ verificaUser = async (userInfo) => {
     })
 }
 
-verificaUser(userInfo);
+verificaUser(userInfo, user);
 console.log('verificado')
