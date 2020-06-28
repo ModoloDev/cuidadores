@@ -9,6 +9,8 @@ try {
 var user = document.getElementById('cuidador');
 if (user == null) {
     user = 'responsavel'
+} else {
+    user = 'cuidador'
 }
 
 const URL_API = 'https://trabalhomodolo.rj.r.appspot.com'
