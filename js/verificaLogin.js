@@ -6,12 +6,7 @@ try {
     window.location.href = 'https://lucasmodolo22.github.io/cuidadores'
 }
 
-var user = document.getElementsByName('cuidador');
-if (user == null) {
-    user = 'responsavel'
-} else {
-    user = 'cuidador'
-}
+var user = document.getElementsByClassName('identificacao')[0].id;
 
 const URL_API = 'https://trabalhomodolo.rj.r.appspot.com'
 
