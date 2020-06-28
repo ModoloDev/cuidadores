@@ -6,7 +6,7 @@ try {
     window.location.href = 'https://lucasmodolo22.github.io/cuidadores'
 }
 
-var user = document.getElementById('cuidador');
+var user = document.getElementsByName('cuidador');
 if (user == null) {
     user = 'responsavel'
 } else {
