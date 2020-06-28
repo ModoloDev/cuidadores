@@ -59,7 +59,7 @@ document.getElementById('btnCadastro').addEventListener('click', async () => {
             window.location.reload(true);
         } else {
             window.alert('Paciente cadastrado com sucesso!');
-            window.location.href = 'https://lucasmodolo22.github.io/cuidadores/adicionacuidador'
+            window.location.href = `adicionacuidador.html?c=${btoa(cpf)}`
         }
     })
 })
