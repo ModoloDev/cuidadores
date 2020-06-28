@@ -1,23 +1,4 @@
-//Button Function
-// $(".fa-bars").click(function() {
-//     if (idmySidenav.width() == 0){
-//         $('.main').animate({left: '0'}, 'slow');
-//         idmySidenav.width('49%');
-//         idmySidenav.show(200);
-//         classtextmysidenax.show();
-//         // idopencloseli.animate.css('textShadow', '0 0 15px rgba(244, 0, 0, 0.71)');
-//         idsaberbutton.removeClass('fa fa-arrow-circle-right').addClass('fa fa-arrow-circle-left');
-//     }
-//     else{
-//         $('.main').animate({left: '25%'}, 'slow');
-//         classtextmysidenax.hide("fast");
-//         idmySidenav.width('0%');
-//         idsaberbutton.removeClass('fa fa-arrow-circle-left').addClass('fa fa-arrow-circle-right');
-//         idmySidenav.fadeOut("100");
-//     }
-// });
-
-const URL_API = 'http://localhost:3000'
+const URL_API = 'https://trabalhomodolo.rj.r.appspot.com'
 
 document.getElementById('entrar-id').addEventListener('click', async () => {
 
@@ -41,18 +22,34 @@ document.getElementById('entrar-id').addEventListener('click', async () => {
             return;
         } else {
             await response.json().then((user) => {
+
+                var date = new Date();
+                date.setDate(date.getDate() + 2);
+
                 if (Object.keys(user.data)[0] == 'cuidador') {
                     if (user.data.cuidador.senha == password) {
-                        console.log('cuidador logado')
-                        // redirect pagina cuidador
+
+                        var userInfo = JSON.stringify(user.data.cuidador)
+                        var userInfoStr = btoa(userInfo)
+
+                        document.cookie = `user=${userInfoStr};expires=${date.toUTCString()};path=/;`;
+
+                        window.location.href = 'https://lucasmodolo22.github.io/cuidadores/logincuidador'
+                        
                     } else {
                         window.alert('Senha incorreta');
                         return;
                     }
                 } else {
                     if (user.data.responsavel.senha == password) {
-                        console.log('responsavel logado')
-                        // redirect pagina responsavel
+                        
+                        var userInfo = JSON.stringify(user.data.responsavel)
+                        var userInfoStr = btoa(userInfo)
+
+                        document.cookie = `user=${userInfoStr};expires=${date.toUTCString()};path=/;`;
+
+                        window.location.href = 'https://lucasmodolo22.github.io/cuidadores/loginresponsavel'
+
                     } else {
                         window.alert('Senha incorreta');
                         return;

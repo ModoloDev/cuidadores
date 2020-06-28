@@ -1,4 +1,4 @@
-const URL_API = 'http://localhost:3000'
+const URL_API = 'https://trabalhomodolo.rj.r.appspot.com'
 
 document.getElementById('btnCadastro').addEventListener('click', async () => {
 
@@ -84,5 +84,13 @@ document.getElementById('btnCadastro').addEventListener('click', async () => {
         headers: {"Content-Type": "application/json; charset=UTF-8"}
     });
 
-    // redirect pagina ${user}
+    var date = new Date();
+    date.setDate(date.getDate() + 2);
+
+    var userInfo = JSON.stringify(payloadJSON)
+    var userInfoStr = btoa(userInfo)
+
+    document.cookie = `user=${userInfoStr};expires=${date.toUTCString()};path=/;`;
+
+    window.location.href = `https://lucasmodolo22.github.io/cuidadores/login${user}`
 });
