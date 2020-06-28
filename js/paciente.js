@@ -42,15 +42,30 @@ getCuidador = async (cpfPaciente) => {
         for (var cuidador in data.data) {
             for (var listPaciente in data.data[cuidador].pacientes) {
                 if (data.data[cuidador].pacientes[listPaciente] == cpfPaciente) {
-                    document.getElementById('outputNomeCuid').innerHTML = data.data[cuidador].nome;
-                    document.getElementById('outputDataNscCuid').innerHTML = data.data[cuidador].dataNsc;
-                    document.getElementById('outputGeneroCuid').innerHTML = data.data[cuidador].genero;
-                    document.getElementById('outputTelefoneCuid').innerHTML = data.data[cuidador].telefone;
+
+                    document.getElementById('showCuidador').innerHTML = 
+                    `<div class="cuidador">
+                        <div class="infocuidador">
+                            <img src="img/avatar.png">
+                            <p class="nomecuidador">${data.data[cuidador].nome}</p>
+                            <div class="infocuidadormais" style="display:none;">
+                                <p class="adicionais">INFORMAÇÕES ADICIONAIS</p>
+                                <div class="infomais">
+                                    <p>${data.data[cuidador].dataNsc}</p>
+                                    <p>${data.data[cuidador].genero}</p>
+                                    <p>${data.data[cuidador].telefone}</p>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>`
                     return;
                 }
             }
         }
     })
+    $('.infocuidador').click(function(){
+        $(this).children('.infocuidadormais').first().toggle("slow", "swing");
+    });
 }
 
 infoPaciente(cpfPaciente);
