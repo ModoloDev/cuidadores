@@ -43,7 +43,7 @@ getCuidador = async (cpfPaciente) => {
             for (var listPaciente in data.data[cuidador].pacientes) {
                 if (data.data[cuidador].pacientes[listPaciente] == cpfPaciente) {
 
-                    document.getElementById('showCuidador').innerHTML = 
+                    document.getElementById('showCuidador').innerHTML += 
                     `<div class="cuidador">
                         <div class="infocuidador">
                             <img src="img/avatar.png">
@@ -58,7 +58,6 @@ getCuidador = async (cpfPaciente) => {
                             </div>
                         </div>
                     </div>`
-                    return;
                 }
             }
         }
