@@ -1,4 +1,4 @@
 document.getElementById('btnLogout').addEventListener('click', () => {
-    document.cookie = undefined;
+    document.cookie = 'user=undefined';
     window.location.href = 'index.html';
 })
