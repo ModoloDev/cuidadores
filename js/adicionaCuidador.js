@@ -14,12 +14,11 @@ $.extend({
 var cpfPaciente = $.getUrlVars()['c'];
 cpfPaciente = atob(cpfPaciente);
 
-getCuidador = async () => {
+getCuidador = async (cpfPaciente) => {
 
     var cuidadores = await fetch(`${URL_API}/cuidadores`, {
         method: 'POST',
         body: {}
-        // headers: {"Content-Type": "application/json; charset=UTF-8"}
     });
     await cuidadores.json().then((data) => {
         for (var cuidador in data.data) {
@@ -37,20 +36,40 @@ getCuidador = async () => {
                     <div class="infocuidadormais" style="display:none;">
                         <p class="adicionais">INFORMAÇÕES ADICIONAIS</p>
                         <div class="infomais">
-                            <p>${data.data[cuidador].dataNsc}</p>
-                            <p>${data.data[cuidador].genero}</p>
-                            <p>${data.data[cuidador].telefone}</p>  
+                            <p>Data de Nascimento: ${data.data[cuidador].dataNsc}</p>
+                            <p>Genero: ${data.data[cuidador].genero}</p>
+                            <p>Telefone: ${data.data[cuidador].telefone}</p>  
                         </div>
                         <div class="cuidadoradd">
-                            <a><i class="fa fa-user-plus"></i></a>
+                            <a id="btnCuidador" class=${btoa(data.data[cuidador].cpf)}><i class="fa fa-user-plus"></i></a>
                         </div>
                     </div>
                 </div>
             </div>`
         }
     })
-    $('.infocuidador').click(function(){
+    $('.infocuidador').click(async function (){
         $(this).children('.infocuidadormais').first().toggle("slow", "swing");
+        var cpf = atob($(this).children('.infocuidadormais').children('.cuidadoradd').children('#btnCuidador').attr('class'));
+        await $(this).children('.infocuidadormais').children('.cuidadoradd').children('#btnCuidador').click(async() => {
+            var payloadJSON = JSON.stringify({
+                cuidador: {
+                    cpf: cpf
+                },
+                paciente: {
+                    cpf: cpfPaciente
+                }
+            })
+
+            await fetch(`${URL_API}/adiciona/cuidador`, {
+                method: 'POST',
+                body: payloadJSON,
+                headers: {"Content-Type": "application/json; charset=UTF-8"}
+            }).then(() => {
+                window.alert('Cuidador atribuido com sucesso!')
+                window.location.href = `paciente.html?c=${btoa(cpf)}`
+            })
+        })
     });
 }
 
@@ -58,14 +77,16 @@ updateList = () => {
     var input = document.getElementById("search-bar").value.toUpperCase();
     var lista = document.getElementById('showCuidador').getElementsByClassName('nomecuidador');
     for (var i in lista){
-        var textContent = lista[i].innerHTML.toUpperCase();
-        var listaDiv = document.getElementsByClassName('cuidador');
-        if (textContent.indexOf(input) > -1){
-            listaDiv[i].style.display = ''
-        } else {
-            listaDiv[i].style.display = 'none';
+        if (lista[i].innerHTML != undefined) {
+            var textContent = lista[i].innerHTML.toUpperCase()
+            var listaDiv = document.getElementsByClassName('cuidador');
+            if (textContent.indexOf(input) > -1){
+                listaDiv[i].style.display = ''
+            } else {
+                listaDiv[i].style.display = 'none';
+            }
         }
     }
 
 }
-getCuidador();
+getCuidador(cpfPaciente);

@@ -34,7 +34,7 @@ document.getElementById('entrar-id').addEventListener('click', async () => {
 
                         document.cookie = `user=${userInfoStr};expires=${date.toUTCString()};path=/;`;
 
-                        window.location.href = 'https://lucasmodolo22.github.io/cuidadores/logincuidador'
+                        window.location.href = 'logincuidador.html'
                         
                     } else {
                         window.alert('Senha incorreta');
@@ -48,7 +48,7 @@ document.getElementById('entrar-id').addEventListener('click', async () => {
 
                         document.cookie = `user=${userInfoStr};expires=${date.toUTCString()};path=/;`;
 
-                        window.location.href = 'https://lucasmodolo22.github.io/cuidadores/loginresponsavel'
+                        window.location.href = 'loginresponsavel.html'
 
                     } else {
                         window.alert('Senha incorreta');

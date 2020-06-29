@@ -12,7 +12,7 @@ listPacientes = async () => {
     await pacientes.json().then(async (data) => {
         if (data.data === undefined) {return;}
         if (Object.keys(data.data[user]).length == 0){
-            window.location.href = 'https://lucasmodolo22.github.io/cuidadores';
+            window.location.href = 'index.html';
         } else {
             if ((data.data[user].pacientes).length == 0) {
                 document.getElementById('listPaciente').innerHTML =

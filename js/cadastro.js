@@ -92,5 +92,5 @@ document.getElementById('btnCadastro').addEventListener('click', async () => {
 
     document.cookie = `user=${userInfoStr};expires=${date.toUTCString()};path=/;`;
 
-    window.location.href = `https://lucasmodolo22.github.io/cuidadores/login${user}`
+    window.location.href = `login${user}.html`
 });

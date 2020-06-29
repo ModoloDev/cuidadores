@@ -13,6 +13,7 @@ $.extend({
 
 var cpfPaciente = $.getUrlVars()['c'];
 cpfPaciente = atob(cpfPaciente);
+document.getElementById('link').setAttribute("href", `adicionacuidador.html?c=${btoa(cpfPaciente)}`)
 
 infoPaciente = async (cpfPaciente) => {
 
