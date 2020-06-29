@@ -37,7 +37,6 @@ getCuidador = async (cpfPaciente) => {
     var cuidadores = await fetch(`${URL_API}/cuidadores`, {
         method: 'POST',
         body: {}
-        // headers: {"Content-Type": "application/json; charset=UTF-8"}
     });
     await cuidadores.json().then((data) => {
         for (var cuidador in data.data) {
