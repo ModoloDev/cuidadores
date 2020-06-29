@@ -87,10 +87,8 @@ document.getElementById('btnCadastro').addEventListener('click', async () => {
     var date = new Date();
     date.setDate(date.getDate() + 2);
 
-    var userInfo = JSON.stringify(payloadJSON)
-    var userInfoStr = btoa(userInfo)
-
+    var userInfoStr = btoa(payloadJSON)
     document.cookie = `user=${userInfoStr};expires=${date.toUTCString()};path=/;`;
-
+    
     window.location.href = `login${user}.html`
 });

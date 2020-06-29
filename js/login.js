@@ -30,6 +30,7 @@ document.getElementById('entrar-id').addEventListener('click', async () => {
                     if (user.data.cuidador.senha == password) {
 
                         var userInfo = JSON.stringify(user.data.cuidador)
+                        console.log(user.data.cuidador)
                         var userInfoStr = btoa(userInfo)
 
                         document.cookie = `user=${userInfoStr};expires=${date.toUTCString()};path=/;`;
