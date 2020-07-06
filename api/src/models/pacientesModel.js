@@ -23,6 +23,10 @@ const schema = new Schema ({
         type: String,
         required: true
     },
+    info: {
+        type: String,
+        required: true
+    }
 });
 
 module.exports = mongoose.model('Pacientes', schema);

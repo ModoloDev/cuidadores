@@ -11,6 +11,7 @@ exports.postCadastroPaciente = (req, res, next) => {
     //     "sexo": 
     //     "dataNsc": 
     //     "endereco": 
+    //     "info":
     // }
 
     let cadastro = new Paciente(req.body);
@@ -165,6 +166,45 @@ exports.getCuidadores = (req, res, next) => {
         res.status(200).send({data: data});
     }).catch(e => {
         res.status(400).send({message: e});
+    })
+}
+
+exports.saveInfo = (req, res, next) => {
+
+    // exemplo de body = {
+    //     cpf: CPF do Paciente,
+    //     info: "String com o conteudo do EditorJs"
+    // }
+
+    Paciente.find({
+        cpf: req.body.cpf
+    }).then(data => {
+        data = data[0];
+        data.info = req.body.info
+        Paciente.replaceOne({
+            cpf: req.body.cpf
+        }, data).then(() => {
+            res.status(200).send({message: "Sucesso!", data: req.body.info})
+        }).catch(error => {
+            res.status(400).send({message: "Fail!", data: error})
+        })
+    })
+}
+
+exports.getInfo = (req, res, next) => {
+
+    // exemplo de body = {
+    //     cpf: CPF do Paciente,
+    // }
+
+    Paciente.find({
+        cpf: req.body.cpf
+    }).then(data => {
+        if (data[0] === undefined) {
+            res.status(400).send({message: "Fail!"})
+        } else {
+            res.status(200).send({data: data[0]})
+        }
     })
 }
 
