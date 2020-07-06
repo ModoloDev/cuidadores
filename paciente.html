@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/paciente.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
         <link rel="shortcut icon" href="img/heartline.png" />
@@ -52,11 +53,18 @@
                     </div></a>
                     <div id="showCuidador"></div>                
                 </div>
+                <div id="editorjs"></div>
+                <button id="btnSave">Save</button>
                 <div class="login-card-footer">
                     <p class="text-muted">2020 Copyright &copy; Cuidadores</p>
                 </div>
             </div>
         </div>
         <script src="js/paciente.js"></script>
+        <script>
+            // Configuração EditorJs
+            const editor = new EditorJS({});
+        </script>
+        <script src="js/editor.js"></script>
     </body>
 </html>
