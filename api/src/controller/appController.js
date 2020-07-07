@@ -197,7 +197,7 @@ async function getPacientesEmail(email) {
         Paciente.find({
             email: email
         }).then(data => {
-            resolve(data[0])
+            resolve(data)
         }).catch(() => {
             rejected(false)
         })
@@ -211,7 +211,7 @@ async function getPacientesCPF(cpf) {
         Paciente.find({
             cpf: cpf
         }).then(data => {
-            resolve(data[0])
+            resolve(data)
         }).catch(() => {
             rejected(false)
         })
@@ -225,7 +225,7 @@ async function getCuidadoresEmail(email) {
         Cuidador.find({
             email: email
         }).then(data => {
-            resolve(data[0])
+            resolve(data)
         }).catch(() => {
             rejected(false)
         })
@@ -239,7 +239,7 @@ async function getCuidadoresCPF(cpf) {
         Cuidador.find({
             cpf: cpf
         }).then(data => {
-            resolve(data[0])
+            resolve(data)
         }).catch(() => {
             rejected(false)
         })
@@ -253,7 +253,7 @@ async function getResponsaveisEmail(email) {
         Responsavel.find({
             email: email
         }).then(data => {
-            resolve(data[0])
+            resolve(data)
         }).catch(() => {
             rejected(false)
         })
@@ -267,7 +267,7 @@ async function getResponsaveisCPF(cpf) {
         Responsavel.find({
             cpf: cpf
         }).then(data => {
-            resolve(data[0])
+            resolve(data)
         }).catch(() => {
             rejected(false)
         })
