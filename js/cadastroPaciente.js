@@ -26,7 +26,8 @@ document.getElementById('btnCadastro').addEventListener('click', async () => {
         cpf: cpf,
         dataNsc: dataNsc,
         sexo: sexo,
-        endereco: endereco
+        endereco: endereco,
+        info: ""
     })
 
     await fetch(`${URL_API}/cadastro/paciente`, {

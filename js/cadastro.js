@@ -1,4 +1,4 @@
-const URL_API = 'https://trabalhomodolo.rj.r.appspot.com'
+const URL_API = 'https://cuidadores-api-pjxy6vdnga-uw.a.run.app'
 
 document.getElementById('btnCadastro').addEventListener('click', async () => {
 

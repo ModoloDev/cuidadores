@@ -191,23 +191,6 @@ exports.saveInfo = (req, res, next) => {
     })
 }
 
-exports.getInfo = (req, res, next) => {
-
-    // exemplo de body = {
-    //     cpf: CPF do Paciente,
-    // }
-
-    Paciente.find({
-        cpf: req.body.cpf
-    }).then(data => {
-        if (data[0] === undefined) {
-            res.status(400).send({message: "Fail!"})
-        } else {
-            res.status(200).send({data: data[0]})
-        }
-    })
-}
-
 async function getPacientesEmail(email) {
 
     var promise = new Promise((resolve, rejected) => {
