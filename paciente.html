@@ -39,9 +39,25 @@
                 <h1 id="outputNomePac"class="cuidadores text-main"></h1>
 
                 <div class="infopaciente">
-                    <p id="outputSexoPac"></p>
-                    <p id="outputEnderecoPac"></p>
-                    <p id="outputDataNscPac"></p>
+                    <div class="campoPerfil">
+                        <p class="perfilDadosRestantesTitulo">Sexo</p>
+                        <p class="perfilDadosRestantes" id="outputSexoPac"></p>
+                    </div>
+                    <div class="campoPerfil">
+                        <p class="perfilDadosRestantesTitulo">Endereço</p>
+                        <p class="perfilDadosRestantes" id="outputEnderecoPac"></p>
+                    </div>
+                    <div class="campoPerfil">
+                        <p class="perfilDadosRestantesTitulo">Data de Nacimento</p>
+                        <p class="perfilDadosRestantes"id="outputDataNscPac"></p>
+                    </div>
+                </div>
+
+                <div class="editorEBotao">
+                    <div id="editorjs">
+                        <p class="editorNotas">INFORMAÇÕES</p>  
+                    </div>
+                    <button id="btnSave"><i class="fa fa-edit"></i></button>
                 </div>
 
                 <p class="cuidadorestitulo"><span class="text-main">CUIDA</span><span class="text-primary">DORES</span></p>
@@ -51,10 +67,8 @@
                         <i class="fa fa-user-plus" aria-hidden="true"></i>
                         <div class="tooltip">ADICIONAR CUIDADOR</div>
                     </div></a>
-                    <div id="showCuidador"></div>                
+                    <div id="showCuidador"></div>              
                 </div>
-                <div id="editorjs"></div>
-                <button id="btnSave">Save</button>
                 <div class="login-card-footer">
                     <p class="text-muted">2020 Copyright &copy; Cuidadores</p>
                 </div>
