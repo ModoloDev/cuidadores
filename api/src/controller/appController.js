@@ -49,8 +49,7 @@ exports.postCadastroResponsavel = (req, res, next) => {
     //     "nome": 
     //     "cpf": 
     //     "dataNsc": 
-    //     "telefone": 
-    //     "endereco": 
+    //     "telefone":
     //     "email":
     //     "senha": 
     // }

@@ -63,7 +63,8 @@ document.getElementById('btnCadastro').addEventListener('click', async () => {
     })
     await verif.json().then(data => {
         if (data.data === undefined) {return;}
-        if (Object.keys(data.data).length !== 0){
+        console.log(Object.keys(data).length)
+        if (Object.keys(data.data.paciente).length !== 0 || Object.keys(data.data.responsavel).length !== 0 || Object.keys(data.data.cuidador).length !== 0){
             window.alert('Ja existe uma conta com esse CPF');
             throw new Error("Cadastro repetido");
         }
@@ -77,7 +78,7 @@ document.getElementById('btnCadastro').addEventListener('click', async () => {
     })
     await verif.json().then(data => {
         if (data.data === undefined) {return;}
-        if (Object.keys(data.data).length !== 0){
+        if (Object.keys(data.data.paciente).length !== 0 || Object.keys(data.data.responsavel).length !== 0 || Object.keys(data.data.cuidador).length !== 0){
             window.alert('Ja existe uma conta com esse Email');
             throw new Error("Cadastro repetido");
         }
