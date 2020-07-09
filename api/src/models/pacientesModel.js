@@ -25,7 +25,8 @@ const schema = new Schema ({
     },
     info: {
         type: Object,
-        required: true
+        required: true,
+        default: {}
     }
 });
 

@@ -24,13 +24,12 @@ document.getElementById('entrar-id').addEventListener('click', async () => {
             await response.json().then((user) => {
 
                 var date = new Date();
-                date.setDate(date.getDate() + 2);
+                date.setDate(date.getDate() + 2); 
+                
+                if (user.data.cuidador.length == 1) {
+                    if (user.data.cuidador[0].senha == password) {
 
-                if (Object.keys(user.data)[0] == 'cuidador') {
-                    if (user.data.cuidador.senha == password) {
-
-                        var userInfo = JSON.stringify(user.data.cuidador)
-                        console.log(user.data.cuidador)
+                        var userInfo = JSON.stringify(user.data.cuidador[0])
                         var userInfoStr = btoa(userInfo)
 
                         document.cookie = `user=${userInfoStr};expires=${date.toUTCString()};path=/;`;
@@ -42,9 +41,9 @@ document.getElementById('entrar-id').addEventListener('click', async () => {
                         return;
                     }
                 } else {
-                    if (user.data.responsavel.senha == password) {
+                    if (user.data.responsavel[0].senha == password) {
                         
-                        var userInfo = JSON.stringify(user.data.responsavel)
+                        var userInfo = JSON.stringify(user.data.responsavel[0])
                         var userInfoStr = btoa(userInfo)
 
                         document.cookie = `user=${userInfoStr};expires=${date.toUTCString()};path=/;`;

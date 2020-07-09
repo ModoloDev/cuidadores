@@ -63,7 +63,6 @@ document.getElementById('btnCadastro').addEventListener('click', async () => {
     })
     await verif.json().then(data => {
         if (data.data === undefined) {return;}
-        console.log(Object.keys(data).length)
         if (Object.keys(data.data.paciente).length !== 0 || Object.keys(data.data.responsavel).length !== 0 || Object.keys(data.data.cuidador).length !== 0){
             window.alert('Ja existe uma conta com esse CPF');
             throw new Error("Cadastro repetido");
@@ -84,7 +83,7 @@ document.getElementById('btnCadastro').addEventListener('click', async () => {
         }
     })
 
-    fetch(`${URL_API}/cadastro/${user}`, {
+    await fetch(`${URL_API}/cadastro/${user}`, {
         method: 'POST',
         body: payloadJSON,
         headers: {"Content-Type": "application/json; charset=UTF-8"}

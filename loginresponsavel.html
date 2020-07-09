@@ -11,6 +11,7 @@
     </head>
     <body id="responsavel" class="identificacao">
         <script src="js/verificaLogin.js"></script>
+        <script src="js/showPacientes.js"></script>
         <nav class="menu">
             <!-- <ul>
                 <li><a class="logo" href="index.html">cuida<span class="text-primary">dores</span></a></li>
@@ -43,22 +44,22 @@
                 <div class="dadosPerfil">
                     <div class="ImgNomeTipoPerfil">
                         <img class="imgperfilprincipal" title="Enviar Nova Imagem" src="img/avatar.png">
-                        <p class="nomePerfil">Nome Completo do Usuário</p>
+                        <p class="nomePerfil" id="outputNome"></p>
                         <p class="tipoDeUsuario">Responsável</p>
                     </div>
                     <div class="campoPerfil">
                         <p class="perfilDadosRestantesTitulo">CPF</p>
-                        <p class="perfilDadosRestantes">111.111.111-11</p>
+                        <p class="perfilDadosRestantes" id="outputCPF">Carregando...</p>
                     </div>
 
                     <div class="campoPerfil">
                         <p class="perfilDadosRestantesTitulo">Telefone</p>
-                        <p class="perfilDadosRestantes">(11) 111111111</p>
+                        <p class="perfilDadosRestantes" id="outputTelefone">Carregando...</p>
                     </div>
 
                     <div class="campoPerfil">
                         <p class="perfilDadosRestantesTitulo">Data de Nascimento</p>
-                        <p class="perfilDadosRestantes">15/12/1980</p>
+                        <p class="perfilDadosRestantes" id="outputDataNsc">Carregando...</p>
                     </div>
 
                 </div>
@@ -70,8 +71,13 @@
                         <i class="fa fa-user-plus" aria-hidden="true"></i>
                         <div class="tooltip">ADICIONAR PACIENTE</div>
                     </div></a>
-
-                    <div id="listPaciente"></div>
+                    <div id="listPaciente">
+                        <div class="login">
+                            <i class="paciente">
+                                <ul><h3>Carregando...</h3></ul>
+                            </i>
+                        </div>
+                    </div>
                    
                 </div>
                 <div class="login-card-footer">
@@ -88,6 +94,5 @@
                 $('.sidebarmenu').toggle("fast", "swing");
             });
         </script>
-        <script src="js/showPacientes.js"></script>
     </body>
 </html>
