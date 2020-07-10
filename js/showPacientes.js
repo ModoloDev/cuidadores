@@ -57,9 +57,9 @@ listPacientes = async () => {
         })
     })
 }
+
 document.addEventListener('readystatechange', async event => {
     var info = await listPacientes();
-    console.log(info)
     if (event.target.readyState === "complete") {
         document.getElementById('listPaciente').innerHTML = info;
     }

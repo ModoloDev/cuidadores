@@ -66,8 +66,8 @@ getCuidador = async (cpfPaciente) => {
     })
 }
 
-infoPaciente(cpfPaciente);
 document.addEventListener('readystatechange', async event => {
+    await infoPaciente(cpfPaciente);
     var info = await getCuidador(cpfPaciente);
     
     if (event.target.readyState === "complete") {
@@ -75,5 +75,7 @@ document.addEventListener('readystatechange', async event => {
         $('.infocuidador').click(function(){
             $(this).children('.infocuidadormais').first().toggle("slow", "swing");
         });
+        document.getElementById('loaderId').style["display"] = "none";
+        document.getElementById("loginCard").style["display"] = "";
     }
 });
