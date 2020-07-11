@@ -15,10 +15,14 @@ listPacientes = async () => {
                 window.location.href = 'index.html';
             } else {
 
-                document.getElementById('outputNome').innerHTML = data.data[user][0].nome;
-                document.getElementById('outputCPF').innerHTML = data.data[user][0].cpf;
-                document.getElementById('outputTelefone').innerHTML = data.data[user][0].telefone;
-                document.getElementById('outputDataNsc').innerHTML = data.data[user][0].dataNsc;
+                var indent = document.getElementsByClassName('identificacao')[0].id;
+                if (indent == 'responsavel'){
+                    
+                    document.getElementById('outputNome').innerHTML = data.data[user][0].nome;
+                    document.getElementById('outputCPF').innerHTML = data.data[user][0].cpf;
+                    document.getElementById('outputTelefone').innerHTML = data.data[user][0].telefone;
+                    document.getElementById('outputDataNsc').innerHTML = data.data[user][0].dataNsc;
+                }
 
                 if ((data.data[user][0].pacientes).length == 0) {
                     resolve(
