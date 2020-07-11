@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
         <link rel="shortcut icon" href="img/heartline.png" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
         
     </head>
     <body id="responsavel" class="identificacao">
@@ -40,7 +41,9 @@
         <script src="js/logout.js"></script>
           
         <div class="main">
-            <div class="login-card">
+            <div class="loader" id="loaderId"><div class="inner one"></div><div class="inner two"></div><div class="inner three"></div></div>
+            
+            <div class="login-card animate__animated animate__zoomIn" style="display: none;" id="loginCard">
                 <div class="dadosPerfil">
                     <div class="ImgNomeTipoPerfil">
                         <!-- <input type='file' accept='image/*' id='file-input' capture />
@@ -63,7 +66,6 @@
                         <p class="perfilDadosRestantesTitulo">Data de Nascimento</p>
                         <p class="perfilDadosRestantes" id="outputDataNsc">Carregando...</p>
                     </div>
-
                 </div>
 
                 <h1 class="cuidadorestitulo"><span class="text-main">PACIE</span><span class="text-primary">NTES</span></h1>

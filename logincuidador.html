@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
         <link rel="shortcut icon" href="img/heartline.png" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
         
     </head>
     <body id="cuidador" class="identificacao">
@@ -38,8 +39,34 @@
         <script src="js/logout.js"></script>
           
         <div class="main">
-            <div class="login-card">
-                <h1 class="cuidadores"><span class="text-main">PACIE</span><span class="text-primary">NTES</span></h1>
+            <div class="loader" id="loaderId"><div class="inner one"></div><div class="inner two"></div><div class="inner three"></div></div>
+
+            <div class="login-card animate__animated animate__zoomIn" style="display: none;" id="loginCard">
+                <div class="dadosPerfil">
+                    <div class="ImgNomeTipoPerfil">
+                        <!-- <input type='file' accept='image/*' id='file-input' capture />
+                        <script src="js/fileHandler.js"></script> -->
+                        <img class="imgperfilprincipal" title="Enviar Nova Imagem" src="img/avatar.png">
+                        <p class="nomePerfil" id="outputNome"></p>
+                        <p class="tipoDeUsuario">Cuidador</p>
+                    </div>
+                    <div class="campoPerfil">
+                        <p class="perfilDadosRestantesTitulo">CPF</p>
+                        <p class="perfilDadosRestantes" id="outputCPF">Carregando...</p>
+                    </div>
+
+                    <div class="campoPerfil">
+                        <p class="perfilDadosRestantesTitulo">Telefone</p>
+                        <p class="perfilDadosRestantes" id="outputTelefone">Carregando...</p>
+                    </div>
+
+                    <div class="campoPerfil">
+                        <p class="perfilDadosRestantesTitulo">Data de Nascimento</p>
+                        <p class="perfilDadosRestantes" id="outputDataNsc">Carregando...</p>
+                    </div>
+                </div>
+
+                <h1 class="cuidadorestitulo"><span class="text-main">PACIE</span><span class="text-primary">NTES</span></h1>
                 <div class="loginTabel">
                     <!-- <a href="adicionacuidador.html"><div class="login">
                         <i class="fa fa-user-plus" aria-hidden="true"></i>
