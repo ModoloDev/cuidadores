@@ -28,6 +28,10 @@ body{
     padding: 48px;
 }
 
+.login-card.animate__animated.animate__zoomIn {
+    --animate-duration: 0.75s;
+  }
+
 .cuidadorTabel{
     margin-top: 10%;
 }
@@ -498,7 +502,7 @@ nav>ul>li { display: inline-block; }
 .menuLinks h3:hover{
     color: #41EAA7;
 }
-    
+
 
 /* Mobile Styling */
  

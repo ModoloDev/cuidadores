@@ -17,6 +17,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
         <link rel="shortcut icon" href="img/heartline.png" /> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
         
     </head>
     <body id="ambos" class="identificacao">
@@ -45,7 +46,8 @@
           
         <div class="main">
             <div class="loader" id="loaderId"><div class="inner one"></div><div class="inner two"></div><div class="inner three"></div></div>
-            <div class="login-card" style="display: none;" id="loginCard">
+
+            <div class="login-card animate__animated animate__zoomIn" style="display: none;" id="loginCard">
                 <h1 id="outputNomePac"class="cuidadores text-main"></h1>
 
                 <div class="infopaciente">
@@ -67,7 +69,7 @@
                     <div id="editorjs">
                         <p class="editorNotas">INFORMAÇÕES</p>  
                     </div>
-                    <button id="btnSave"><i class="fa fa-edit"></i></button>
+                    <button id="btnSave"><i class="btnSave fa fa-edit"></i></button>
                 </div>
 
                 <p class="cuidadorestitulo"><span class="text-main">CUIDA</span><span class="text-primary">DORES</span></p>
@@ -92,7 +94,24 @@
                 </div>
             </div>
         </div>
+
+
         <script src="js/paciente.js"></script>
         <script src="js/editor.js"></script>
+        <script>
+            var btnSaveClass = $(".btnSave");
+            var btnSaveID = $( "#btnSave" );
+            btnSaveID.click(function() {
+                btnSaveClass.removeClass( "fa-edit" );
+                btnSaveClass.addClass( "fa-check" );
+                btnSaveID.css({"background": '#1C1E4A'})
+
+                setTimeout(function(){
+                    btnSaveClass.removeClass( "fa-check" );
+                    btnSaveClass.addClass( "fa-edit" );
+                    btnSaveID.css({"background": "#41EAA7"})
+                }, 5000);
+            });
+        </script>
     </body>
 </html>
