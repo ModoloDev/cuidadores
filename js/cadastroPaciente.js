@@ -70,7 +70,7 @@ document.getElementById('btnCadastro').addEventListener('click', async () => {
             window.location.reload(true);
         } else {
             window.alert('Paciente cadastrado com sucesso!');
-            //window.location.href = `adicionacuidador.html?c=${btoa(cpf)}`
+            window.location.href = `adicionacuidador.html?c=${btoa(cpf)}`
         }
     })
 })
