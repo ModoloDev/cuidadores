@@ -10,6 +10,11 @@ document.getElementById('btnCadastro').addEventListener('click', async () => {
         return;
     }
 
+    if (!TestaData(dataNsc)) {
+        window.alert('Essa data é inválida!');
+        return;
+    }
+
     var payloadJSONVerif = JSON.stringify({cpf: cpf});
 
     var verif = await fetch(`${URL_API}/user/cpf`, {
@@ -65,28 +70,38 @@ document.getElementById('btnCadastro').addEventListener('click', async () => {
             window.location.reload(true);
         } else {
             window.alert('Paciente cadastrado com sucesso!');
-            window.location.href = `adicionacuidador.html?c=${btoa(cpf)}`
+            //window.location.href = `adicionacuidador.html?c=${btoa(cpf)}`
         }
     })
 })
 
-VerificaCPF = (strCPF) => {
-    var Soma;
-    var Resto;
-    Soma = 0;
-  if (strCPF == "00000000000") return false;
-     
-  for (i=1; i<=9; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (11 - i);
-  Resto = (Soma * 10) % 11;
-   
-    if ((Resto == 10) || (Resto == 11))  Resto = 0;
-    if (Resto != parseInt(strCPF.substring(9, 10)) ) return false;
-   
-  Soma = 0;
-    for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (12 - i);
-    Resto = (Soma * 10) % 11;
-   
-    if ((Resto == 10) || (Resto == 11))  Resto = 0;
-    if (Resto != parseInt(strCPF.substring(10, 11) ) ) return false;
+VerificaCPF = (cpf) => {
+    cpf = cpf.replace(/\D/g, '');
+    if(cpf.toString().length != 11 || /^(\d)\1{10}$/.test(cpf)) return false;
+    var result = true;
+    [9,10].forEach(function(j){
+        var soma = 0, r;
+        cpf.split(/(?=)/).splice(0,j).forEach(function(e, i){
+            soma += parseInt(e) * ((j+2)-(i+1));
+        });
+        r = soma % 11;
+        r = (r <2)?0:11-r;
+        if(r != cpf.substring(j, j+1)) result = false;
+    });
+    return result;
+}
+
+TestaData = (tempo) => {
+    let dia = tempo.substring(0,2);
+    let mes = tempo.substring(3,5);
+    let ano = tempo.substring(6,10);
+    if (mes > 12) return false;
+    if (ano > 2001 || ano < 1900) return false;
+    if (mes in [1, 3, 5, 7, 8, 10, 12] && dia > 31) return false;
+    else if (mes == 2){
+        if ((ano % 4 === 0) && (ano % 400 !== 0) && (dia > 29)) return false;
+        else if (dia > 28) return false;
+    }
+    else if (dia > 30) return false;
     return true;
 }
