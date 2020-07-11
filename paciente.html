@@ -14,6 +14,7 @@
         <script src="https://cdn.jsdelivr.net/npm/@editorjs/table@latest"></script>
         <script src="https://cdn.jsdelivr.net/npm/@editorjs/link@latest"></script>
         <script src="https://cdn.jsdelivr.net/npm/@editorjs/inline-code@latest"></script>
+        <link rel="stylesheet" href="css/light.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
         <link rel="shortcut icon" href="img/heartline.png" /> 
@@ -87,17 +88,19 @@
                                 </h3></ul>
                             </i>
                         </div>
-                    </div>              
+                    </div>
+                    <div id="calendar" style="height: 50%; width: 100%;"></div>
                 </div>
                 <div class="login-card-footer">
                     <p class="text-muted">2020 Copyright &copy; Cuidadores</p>
                 </div>
             </div>
         </div>
-
-
         <script src="js/paciente.js"></script>
         <script src="js/editor.js"></script>
+        <script src="js/MindFusion.Scheduling.js"></script>
+        <script src="js/GoogleSchedule.js"></script>
+        <script src="js/TimeForm.js"></script>
         <script>
             var btnSaveClass = $(".btnSave");
             var btnSaveID = $( "#btnSave" );
@@ -105,12 +108,6 @@
                 btnSaveClass.removeClass( "fa-edit" );
                 btnSaveClass.addClass( "fa-check" );
                 btnSaveID.css({"background": '#1C1E4A'})
-
-                setTimeout(function(){
-                    btnSaveClass.removeClass( "fa-check" );
-                    btnSaveClass.addClass( "fa-edit" );
-                    btnSaveID.css({"background": "#41EAA7"})
-                }, 5000);
             });
         </script>
     </body>

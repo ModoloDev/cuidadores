@@ -16,6 +16,7 @@ getInfoPaciente = async () => {
 
 showInfo = async () => {
     var savedData = await getInfoPaciente();
+    var btnSaveClass = $(".btnSave");
 
     const editor = new EditorJS({
         holder: 'editorjs',
@@ -56,7 +57,12 @@ showInfo = async () => {
             inlineToolbar: true
             }
         },
-        data: savedData
+        data: savedData,
+        onChange: function() {
+            btnSaveClass.removeClass( "fa-check" );
+            btnSaveClass.addClass( "fa-edit" );
+            btnSaveID.css({"background": "#41EAA7"})
+        }
     });
 
     document.getElementById('btnSave').addEventListener('click', async () => {

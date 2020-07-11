@@ -120,9 +120,9 @@ VerificaCPF = (cpf) => {
 }
 
 TestaData = (tempo) => {
-    let dia = tempo.substring(0,2);
-    let mes = tempo.substring(3,5);
-    let ano = tempo.substring(6,10);
+    let dia = tempo.substring(0, 2);
+    let mes = tempo.substring(3, 5);
+    let ano = tempo.substring(6, 10);
     if (mes > 12) return false;
     if (ano > 2001 || ano < 1900) return false;
     if (mes in [1, 3, 5, 7, 8, 10, 12] && dia > 31) return false;
