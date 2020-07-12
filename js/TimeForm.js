@@ -7,7 +7,7 @@ var TimeForm = function (calendar, item, type)
 
 	this._id = "TimeForm";
 	this._type = type;
-	this.headerText = "Appointment";
+	this.headerText = "Evento";
 	
 }
 
@@ -21,10 +21,9 @@ TimeForm.prototype.drawContent = function ()
 	var content = this.getContent();	
 	
 	var row = this.row();
-	row.innerHTML = this.localInfo.subjectCaption;
+	row.innerHTML = 'Mensagem';
 	content.appendChild(row);
 	
-	// create a text-area for the item subject
 	var textArea = this.createTextArea({ id: "subject", initValue: this.item.subject, events: { keydown: this._areaKeyDown} });
 	textArea.element.style.width = "200px";
 	this.addControl(textArea);
@@ -33,9 +32,8 @@ TimeForm.prototype.drawContent = function ()
 	row.appendChild(textArea.element);
 	content.appendChild(row);
 
-	// create a drop-down list for start hours
 	row = this.row();
-	row.innerHTML = "Start Time";
+	row.innerHTML = "Início";
 	content.appendChild(row);
 
 	var control = this.createDropDownList({ id: "start_time", items: this.getHourLabels(), initValue: this.getStartTimeIndex(), addEmptyValue: false });
@@ -46,9 +44,8 @@ TimeForm.prototype.drawContent = function ()
 	row.appendChild(control.element);
 	content.appendChild(row);
 
-	// create a drop-down list for end time
 	row = this.row();
-	row.innerHTML = "End Time";
+	row.innerHTML = "Fim";
 	content.appendChild(row);
 
 	var item = this.item;
@@ -57,14 +54,29 @@ TimeForm.prototype.drawContent = function ()
 	this.addControl(control);
 
 	row = this.row();
-	row.style.margin = "0px 0px 30px 0px";
 	row.appendChild(control.element);
 	content.appendChild(row);
+
+	if (identificacao == 'paciente') {
+		row = this.row();
+		row.innerHTML = "Cuidador";
+		content.appendChild(row);
+
+		var cuid = this.createDropDownList({ id: "cuidador", items: cuidObj, initValue: "", addEmptyValue: false });
+		cuid.element.style.width = "200px";
+		this.addControl(cuid);
+
+		row = this.row();
+		row.style.margin = "0px 0px 30px 0px";
+		row.appendChild(cuid.element);
+		content.appendChild(row);
+	}
 	
+	document.getElementsByClassName('mfp-header').innerHTML = "";
+
 	return content;
 };
 
-// create an array of objects to fill the hours drop-down
 TimeForm.prototype.getHourLabels = function ()
 {
 	hoursList = [];
@@ -81,7 +93,6 @@ TimeForm.prototype.getHourLabels = function ()
 		index += 2;
 	}
 	
-	//add the first afternnon hours
 	hoursList.push({ value: index + 1, text: "12:00pm" });
 	hoursList.push({ value: index + 2, text: "12:30pm" });
 	
@@ -93,12 +104,11 @@ TimeForm.prototype.getHourLabels = function ()
 	    hoursList.push({ value: index+2, text: i.toString() + ":30pm" });
 		
 		index += 2;
-	}	
-	
+	} 
+
 	return hoursList;
 }
 
-// get the index of the current item's rank to set the value of the Ranks drop-down
 TimeForm.prototype.getStartTimeIndex = function ()
 {
 	if (this.item != null && this.item.startTime != null)
@@ -118,7 +128,6 @@ TimeForm.prototype.getSubject = function()
 		return this.item.subject;
 }
 
-// get the index of the current item's rank to set the value of the Ranks drop-down
 TimeForm.prototype.getEndTimeIndex = function ()
 {
 	if (this.item != null && this.item.endTime != null)
@@ -130,21 +139,19 @@ TimeForm.prototype.getEndTimeIndex = function ()
 		
 		if (minutes > 0)
 			index += 1;
-		
 		return index;
 		
 	}
 	return -1;
 }
 
-// override BaseForm's drawButtons method to create form buttons
 TimeForm.prototype.drawButtons = function ()
 {
 	var thisObj = this;
 
 	var btnSave = this.createButton({
 		id: "btnSave",
-		text: this.localInfo.saveButtonCaption,
+		text: 'Salvar',
 		events: { "click": function click(e)
 		{
 			return thisObj.onSaveButtonClick(e);
@@ -154,7 +161,7 @@ TimeForm.prototype.drawButtons = function ()
 
 	var btnCancel = this.createButton({
 		id: "btnCancel",
-		text: this.localInfo.cancelButtonCaption,
+		text: 'Cancelar',
 		events: { click: function click(e)
 		{
 			return thisObj.onCancelButtonClick(e);
@@ -172,43 +179,82 @@ TimeForm.prototype.drawButtons = function ()
 
 TimeForm.prototype.onSaveButtonClick = function (e)
 {
-	// update the item with the form data
-	 // update the item with the form data
- var startIndex = +this.getControlValue("start_time");
- var startTime = this.item.startTime.date.clone().addHours(startIndex * 0.5);
+	var startIndex = +this.getControlValue("start_time");
+	var startTime = this.item.startTime.date.clone().addHours(startIndex * 0.5);
 
- var endIndex = +this.getControlValue("end_time");
- var endTime = this.item.endTime.date.clone().addHours(endIndex * 0.5);
+	var endIndex = +this.getControlValue("end_time");
+	var endTime = this.item.endTime.date.clone().addHours(endIndex * 0.5);
 
- // if end time is specified, decrease it by one day
- if (endIndex != 0 && this.item.endTime.hour == 0)
-  endTime.addDays(-1);
+	if (endIndex != 0 && this.item.endTime.hour == 0)
+	endTime.addDays(-1);
 
- // check for inconsistent start/end time
- if (startTime.valueOf() > endTime.valueOf())
-         endTime = startTime.clone().addHours(1);
+	if (startTime.valueOf() > endTime.valueOf())
+			endTime = startTime.clone().addHours(1);
 
- // apply changes 
- this.item.subject = this.getControlValue("subject"); 
- this.item.startTime = startTime;
- this.item.endTime = endTime;
- console.log(this.item)
- // if a new item is created, add it to the schedule.items collection
- if (this.type === "new")
-  this.calendar.schedule.items.add(this.item);
+	this.item.subject = this.getControlValue("subject"); 
+	this.item.startTime = startTime;
+	this.item.endTime = endTime;
+	if (identificacao == 'paciente') {
+		this.item._cuidador = this.getControlValue("cuidador");
+		syncCuidador(this.getControlValue("cuidador"), this.item)
+	}
+	if (this.type === "new") {
+		this.calendar.schedule.items.add(this.item);
+	}
 
- // close the form
- this.closeForm();
+	this.closeForm();
 
- // repaint the calendar
- this.calendar.repaint(true);
+	this.calendar.repaint(true);
 };
 
 TimeForm.prototype.onCancelButtonClick = function (e)
 {
-	// close the form
 	this.closeForm();
 };
 
+syncCuidador = async (cpf, evento) => {
+	var eventos = "";
+	var payloadJSONVerif = JSON.stringify({cpf: cpf});
 
+	var verif = await fetch(`${URL_API}/user/cpf`, {
+		method: 'POST',
+		body: payloadJSONVerif,
+		headers: {"Content-Type": "application/json; charset=UTF-8"}
+	})
+	await verif.json().then(data => {
+		eventos = JSON.parse(data.data.cuidador[0].calendario)
+		eventos.items.push({
+			id: evento._id,
+			startTime: evento._startTime._ticks,
+			endTime: evento._endTime._ticks,
+			allowChangeStart: evento._allowChangeStart,
+			allowChangeEnd: evento._allowChangeEnd,
+			allowMove: evento._allowMove,
+			allDayEvent: evento._allDayEvent,
+			locked: evento._locked,
+			subject: evento._subject,
+			details: evento._details,
+			contacts: [],
+			resources: [],
+			location: null,
+			task: null,
+			cssClass: evento._cssClass,
+			visible: evento._visible,
+			priority: evento._priority,
+			reminder: evento._reminder
+		})
+	})
+	console.log(JSON.stringify(eventos))
+	payloadJSON = JSON.stringify({
+		cpf: cpf,
+		calendario: eventos
+	})
+
+	await fetch(`${URL_API}/save/calendario/cuidador`, {
+		method: 'POST',
+		body: payloadJSON,
+		headers: {"Content-Type": "application/json; charset=UTF-8"}
+	})
+
+}
 

@@ -14,15 +14,11 @@ listPacientes = async () => {
             if (Object.keys(data.data[user]).length == 0){
                 window.location.href = 'index.html';
             } else {
-
-                var indent = document.getElementsByClassName('identificacao')[0].id;
-                if (indent == 'responsavel'){
-                    
-                    document.getElementById('outputNome').innerHTML = data.data[user][0].nome;
-                    document.getElementById('outputCPF').innerHTML = data.data[user][0].cpf;
-                    document.getElementById('outputTelefone').innerHTML = data.data[user][0].telefone;
-                    document.getElementById('outputDataNsc').innerHTML = data.data[user][0].dataNsc;
-                }
+                   
+                document.getElementById('outputNome').innerHTML = data.data[user][0].nome;
+                document.getElementById('outputCPF').innerHTML = data.data[user][0].cpf;
+                document.getElementById('outputTelefone').innerHTML = data.data[user][0].telefone;
+                document.getElementById('outputDataNsc').innerHTML = data.data[user][0].dataNsc;
 
                 if ((data.data[user][0].pacientes).length == 0) {
                     resolve(
@@ -66,5 +62,9 @@ document.addEventListener('readystatechange', async event => {
     var info = await listPacientes();
     if (event.target.readyState === "complete") {
         document.getElementById('listPaciente').innerHTML = info;
+
+        document.getElementById('loaderId').style["display"] = "none";
+        document.getElementById("loginCard").style["display"] = "";
     }
+    
 });

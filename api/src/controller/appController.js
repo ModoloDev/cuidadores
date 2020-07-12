@@ -12,6 +12,7 @@ exports.postCadastroPaciente = (req, res, next) => {
     //     "dataNsc": 
     //     "endereco": 
     //     "info":
+    //     "calendario":
     // }
 
     let cadastro = new Paciente(req.body);
@@ -188,6 +189,52 @@ exports.saveInfo = (req, res, next) => {
             res.status(400).send({message: "Fail!", data: error})
         })
     })
+}
+
+exports.saveCalendarioPaciente = (req, res, next) => {
+
+    // exemplo de body = {
+    //     cpf:
+    //     calendario: 
+    // }
+
+    Paciente.find({
+        cpf: req.body.cpf
+    }).then(data => {
+        data = data[0];
+        data.calendario = req.body.calendario
+        Paciente.replaceOne({
+            cpf: req.body.cpf
+        }, data).then(() => {
+            res.status(200).send({message: "Sucesso!", data: req.body.calendario});
+        }).catch(error => {
+            res.staus(400).send({data: error});
+        })
+    })
+
+}
+
+exports.saveCalendarioCuidador = (req, res, next) => {
+
+    // exemplo de body = {
+    //     cpf:
+    //     calendario: 
+    // }
+
+    Cuidador.find({
+        cpf: req.body.cpf
+    }).then(data => {
+        data = data[0];
+        data.calendario = req.body.calendario
+        Cuidador.replaceOne({
+            cpf: req.body.cpf
+        }, data).then(() => {
+            res.status(200).send({message: "Sucesso!", data: req.body.calendario});
+        }).catch(error => {
+            res.staus(400).send({data: error});
+        })
+    })
+
 }
 
 async function getPacientesEmail(email) {

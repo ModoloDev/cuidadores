@@ -27,6 +27,11 @@ const schema = new Schema ({
         type: Object,
         required: true,
         default: {}
+    },
+    calendario: {
+        type: Object,
+        required: true,
+        default: {}
     }
 });
 
