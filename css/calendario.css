@@ -1,0 +1,51 @@
+.calendarioDIV{
+    margin-top: 5%;
+    margin-bottom: 10%;
+    -webkit-transform: translateZ(0); /* webkit flicker fix */
+    -webkit-font-smoothing: antialiased; /* webkit text rendering fix */
+    border: 1px solid #D0CFCE;
+}
+
+.calendarioDIVHeader{
+    background-color: transparent;
+    background: #41EAA7;
+    padding: 5%;
+    font-size: 28px;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,.14);
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: .5px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,.14);
+    text-align: center;
+}
+
+.calendarioDIVHeader:hover{
+    background-color: #1C1E4A;
+}
+
+#saveButton{
+    background-color: transparent;
+    background: #1C1E4A;
+    padding: 5%;
+    font-size: 28px;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,.14);
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: .5px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,.14);
+    text-align: center;
+}
+
+#saveButton:hover{
+    background: #41EAA7;
+}
+
+.mfp-header-weeknumbers{
+    display: none;
+}
