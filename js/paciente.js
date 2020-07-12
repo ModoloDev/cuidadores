@@ -10,6 +10,12 @@ $.extend({
         return vars;
     }
 })
+console.log(typeof(userInfo.calendario))
+if (userInfo.calendario == undefined) {
+    document.getElementById('voltarId').href = 'loginresponsavel.html'
+} else {
+    document.getElementById('voltarId').href = 'logincuidador.html'
+}
 
 var cpfPaciente = $.getUrlVars()['c'];
 cpfPaciente = atob(cpfPaciente);
