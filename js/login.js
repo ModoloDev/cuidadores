@@ -1,4 +1,4 @@
-const URL_API = 'https://trabalhomodolo.rj.r.appspot.com'
+const URL_API = 'https://cuidadores-api-pjxy6vdnga-uw.a.run.app'
 
 document.getElementById('entrar-id').addEventListener('click', async () => {
 
@@ -12,50 +12,48 @@ document.getElementById('entrar-id').addEventListener('click', async () => {
 
     var payloadJSON = JSON.stringify({email: email});
 
-    await fetch(`${URL_API}/user/email`, {
+    var login = await fetch(`${URL_API}/user/email`, {
         method: "POST",
         body: payloadJSON,
         headers: {"Content-Type": "application/json; charset=UTF-8"}
-    }).then(async (response) => {
-        if (response.status == 400) {
+    })
+    await login.json().then(async (user) => {
+        if (user.data.paciente.length == 0 && user.data.responsavel.length == 0 && user.data.cuidador.length == 0) {
             window.alert('Nenhum cadastro encontrado com esse email');
             return;
         } else {
-            await response.json().then((user) => {
+            var date = new Date();
+            date.setDate(date.getDate() + 2); 
+            
+            if (user.data.cuidador.length == 1) {
+                if (user.data.cuidador[0].senha == password) {
 
-                var date = new Date();
-                date.setDate(date.getDate() + 2);
+                    var userInfo = JSON.stringify(user.data.cuidador[0])
+                    var userInfoStr = btoa(userInfo)
 
-                if (Object.keys(user.data)[0] == 'cuidador') {
-                    if (user.data.cuidador.senha == password) {
+                    document.cookie = `user=${userInfoStr};expires=${date.toUTCString()};path=/;`;
 
-                        var userInfo = JSON.stringify(user.data.cuidador)
-                        var userInfoStr = btoa(userInfo)
-
-                        document.cookie = `user=${userInfoStr};expires=${date.toUTCString()};path=/;`;
-
-                        window.location.href = 'https://lucasmodolo22.github.io/cuidadores/logincuidador'
-                        
-                    } else {
-                        window.alert('Senha incorreta');
-                        return;
-                    }
+                    window.location.href = 'logincuidador.html'
+                    
                 } else {
-                    if (user.data.responsavel.senha == password) {
-                        
-                        var userInfo = JSON.stringify(user.data.responsavel)
-                        var userInfoStr = btoa(userInfo)
-
-                        document.cookie = `user=${userInfoStr};expires=${date.toUTCString()};path=/;`;
-
-                        window.location.href = 'https://lucasmodolo22.github.io/cuidadores/loginresponsavel'
-
-                    } else {
-                        window.alert('Senha incorreta');
-                        return;
-                    }
+                    window.alert('Senha incorreta');
+                    return;
                 }
-            });
+            } else {
+                if (user.data.responsavel[0].senha == password) {
+                    
+                    var userInfo = JSON.stringify(user.data.responsavel[0])
+                    var userInfoStr = btoa(userInfo)
+
+                    document.cookie = `user=${userInfoStr};expires=${date.toUTCString()};path=/;`;
+
+                    window.location.href = 'loginresponsavel.html'
+
+                } else {
+                    window.alert('Senha incorreta');
+                    return;
+                }
+            }
         }
     });
 });

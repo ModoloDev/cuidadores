@@ -10,5 +10,8 @@ router.post('/adiciona/responsavel', controller.postAdicionaPacienteResponsavel)
 router.post('/user/cpf', controller.getUserCPF);
 router.post('/user/email', controller.getUserEmail);
 router.post('/cuidadores', controller.getCuidadores);
+router.post('/save/info', controller.saveInfo);
+router.post('/save/calendario/paciente', controller.saveCalendarioPaciente);
+router.post('/save/calendario/cuidador', controller.saveCalendarioCuidador);
 
 module.exports = router;

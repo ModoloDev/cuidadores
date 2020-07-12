@@ -23,6 +23,16 @@ const schema = new Schema ({
         type: String,
         required: true
     },
+    info: {
+        type: Object,
+        required: true,
+        default: {}
+    },
+    calendario: {
+        type: Object,
+        required: true,
+        default: {}
+    }
 });
 
 module.exports = mongoose.model('Pacientes', schema);

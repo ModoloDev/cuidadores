@@ -1,11 +1,24 @@
 <html>
     <head>
-        <title>Login Cuidador - Cuidadores</title>
+        <title>Paciente - Cuidadores</title>
+        <meta charset="UTF-8">
         <link rel="stylesheet" href="css/paciente.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@editorjs/simple-image@latest"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@editorjs/delimiter@latest"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@editorjs/checklist@latest"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@editorjs/embed@latest"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@editorjs/table@latest"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@editorjs/link@latest"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@editorjs/inline-code@latest"></script>
+        <link rel="stylesheet" href="css/light.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-        <link rel="shortcut icon" href="img/heartline.png" />
+        <link rel="shortcut icon" href="img/heartline.png" /> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
         
     </head>
     <body id="ambos" class="identificacao">
@@ -33,23 +46,52 @@
         </div>
           
         <div class="main">
-            <div class="login-card">
+            <div class="loader" id="loaderId"><div class="inner one"></div><div class="inner two"></div><div class="inner three"></div></div>
+
+            <div class="login-card animate__animated animate__zoomIn" style="display: none;" id="loginCard">
                 <h1 id="outputNomePac"class="cuidadores text-main"></h1>
 
                 <div class="infopaciente">
-                    <p id="outputSexoPac"></p>
-                    <p id="outputEnderecoPac"></p>
-                    <p id="outputDataNscPac"></p>
+                    <div class="campoPerfil">
+                        <p class="perfilDadosRestantesTitulo">Sexo</p>
+                        <p class="perfilDadosRestantes" id="outputSexoPac">Carregando...</p>
+                    </div>
+                    <div class="campoPerfil">
+                        <p class="perfilDadosRestantesTitulo">Endereço</p>
+                        <p class="perfilDadosRestantes" id="outputEnderecoPac">Carregando...</p>
+                    </div>
+                    <div class="campoPerfil">
+                        <p class="perfilDadosRestantesTitulo">Data de Nacimento</p>
+                        <p class="perfilDadosRestantes"id="outputDataNscPac">Carregando...</p>
+                    </div>
+                </div>
+
+                <div class="editorEBotao">
+                    <div id="editorjs">
+                        <p class="editorNotas">INFORMAÇÕES</p>  
+                    </div>
+                    <button id="btnSave"><i class="btnSave fa fa-edit"></i></button>
                 </div>
 
                 <p class="cuidadorestitulo"><span class="text-main">CUIDA</span><span class="text-primary">DORES</span></p>
 
                 <div class="cuidadorTabel">
-                    <a href="adicionacuidador.html"><div class="cuidador">
+                    <a href="#" id="link"><div class="cuidador">
                         <i class="fa fa-user-plus" aria-hidden="true"></i>
-                        <div class="tooltip">ADICIONAR PACIENTE</div>
+                        <div class="tooltip">ADICIONAR CUIDADOR</div>
                     </div></a>
-                    <ul id="showCuidador"></ul>                
+                    <div id="showCuidador">
+                        <div class="cuidador">
+                            <i class="infocuidador">
+                                <ul><h3>
+                                    Carregando...
+                                </h3></ul>
+                            </i>
+                        </div>
+                    </div>
+                    <div id="calendar" style="height: 70%; width: 100%; display: none;"></div>
+                    <button id="saveButton">Save</button>
+                    <button id="loadButton">abrir calendario</button>
                 </div>
                 <div class="login-card-footer">
                     <p class="text-muted">2020 Copyright &copy; Cuidadores</p>
@@ -57,5 +99,19 @@
             </div>
         </div>
         <script src="js/paciente.js"></script>
+        <script src="js/calendario.js"></script>
+        <script src="js/editor.js"></script>
+        <script src="js/MindFusion.Scheduling.js"></script>
+        <script src="js/GoogleSchedule.js"></script>
+        <script src="js/TimeForm.js"></script>
+        <script>
+            var btnSaveClass = $(".btnSave");
+            var btnSaveID = $( "#btnSave" );
+            btnSaveID.click(function() {
+                btnSaveClass.removeClass( "fa-edit" );
+                btnSaveClass.addClass( "fa-check" );
+                btnSaveID.css({"background": '#1C1E4A'})
+            });
+        </script>
     </body>
 </html>

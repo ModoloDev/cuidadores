@@ -40,7 +40,12 @@ const schema = new Schema ({
         type: String,
         require: true,
         default: ""
-    }]
+    }],
+    calendario: {
+        type: Object,
+        required: true,
+        default: {}
+    }
 });
 
 module.exports = mongoose.model('Cuidadores', schema);

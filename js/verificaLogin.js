@@ -1,11 +1,11 @@
-const URL_API = 'https://trabalhomodolo.rj.r.appspot.com'
+const URL_API = 'https://cuidadores-api-pjxy6vdnga-uw.a.run.app'
 
 var userInfo = document.cookie
 try {
     userInfo = atob(userInfo.split('=')[1])
     userInfo = JSON.parse(userInfo)
 } catch(error) {
-    window.location.href = 'https://lucasmodolo22.github.io/cuidadores'
+    window.location.href = 'index.html'
 }
 
 var user = document.getElementsByClassName('identificacao')[0].id;
@@ -15,7 +15,7 @@ verificaUser = async (userInfo, user) => {
     try {
         payloadJSON = JSON.stringify({cpf: userInfo.cpf})
     } catch {
-        window.location.href = 'https://lucasmodolo22.github.io/cuidadores'
+        window.location.href = 'index.html'
     }
 
     var verif = await fetch(`${URL_API}/user/cpf`, {
@@ -26,15 +26,15 @@ verificaUser = async (userInfo, user) => {
     await verif.json().then(data => {
         if (data.data === undefined) {return;}
         if (Object.keys(data.data).length == 0) {
-            window.location.href = 'https://lucasmodolo22.github.io/cuidadores'
+            window.location.href = 'index.html'
         }
         if (user == 'cuidador') {
             if (data.data.cuidador === undefined) {
-                window.location.href = 'https://lucasmodolo22.github.io/cuidadores'
+                window.location.href = 'index.html'
             }
         } else if (user == 'responsavel') {
             if (data.data.responsavel === undefined) {
-                window.location.href = 'https://lucasmodolo22.github.io/cuidadores'
+                window.location.href = 'index.html'
             }
         }
     })

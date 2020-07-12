@@ -11,6 +11,8 @@ exports.postCadastroPaciente = (req, res, next) => {
     //     "sexo": 
     //     "dataNsc": 
     //     "endereco": 
+    //     "info":
+    //     "calendario":
     // }
 
     let cadastro = new Paciente(req.body);
@@ -48,8 +50,7 @@ exports.postCadastroResponsavel = (req, res, next) => {
     //     "nome": 
     //     "cpf": 
     //     "dataNsc": 
-    //     "telefone": 
-    //     "endereco": 
+    //     "telefone":
     //     "email":
     //     "senha": 
     // }
@@ -168,13 +169,81 @@ exports.getCuidadores = (req, res, next) => {
     })
 }
 
+exports.saveInfo = (req, res, next) => {
+
+    // exemplo de body = {
+    //     cpf: CPF do Paciente,
+    //     info: "String com o conteudo do EditorJs"
+    // }
+
+    Paciente.find({
+        cpf: req.body.cpf
+    }).then(data => {
+        data = data[0];
+        data.info = req.body.info
+        Paciente.replaceOne({
+            cpf: req.body.cpf
+        }, data).then(() => {
+            res.status(200).send({message: "Sucesso!", data: req.body.info})
+        }).catch(error => {
+            res.status(400).send({message: "Fail!", data: error})
+        })
+    })
+}
+
+exports.saveCalendarioPaciente = (req, res, next) => {
+
+    // exemplo de body = {
+    //     cpf:
+    //     calendario: 
+    // }
+
+    Paciente.find({
+        cpf: req.body.cpf
+    }).then(data => {
+        data = data[0];
+        data.calendario = req.body.calendario
+        Paciente.replaceOne({
+            cpf: req.body.cpf
+        }, data).then(() => {
+            res.status(200).send({message: "Sucesso!", data: req.body.calendario});
+        }).catch(error => {
+            res.staus(400).send({data: error});
+        })
+    })
+
+}
+
+exports.saveCalendarioCuidador = (req, res, next) => {
+
+    // exemplo de body = {
+    //     cpf:
+    //     calendario: 
+    // }
+
+    Cuidador.find({
+        cpf: req.body.cpf
+    }).then(data => {
+        data = data[0];
+        data.calendario = req.body.calendario
+        Cuidador.replaceOne({
+            cpf: req.body.cpf
+        }, data).then(() => {
+            res.status(200).send({message: "Sucesso!", data: req.body.calendario});
+        }).catch(error => {
+            res.staus(400).send({data: error});
+        })
+    })
+
+}
+
 async function getPacientesEmail(email) {
 
     var promise = new Promise((resolve, rejected) => {
         Paciente.find({
             email: email
         }).then(data => {
-            resolve(data[0])
+            resolve(data)
         }).catch(() => {
             rejected(false)
         })
@@ -188,7 +257,7 @@ async function getPacientesCPF(cpf) {
         Paciente.find({
             cpf: cpf
         }).then(data => {
-            resolve(data[0])
+            resolve(data)
         }).catch(() => {
             rejected(false)
         })
@@ -202,7 +271,7 @@ async function getCuidadoresEmail(email) {
         Cuidador.find({
             email: email
         }).then(data => {
-            resolve(data[0])
+            resolve(data)
         }).catch(() => {
             rejected(false)
         })
@@ -216,7 +285,7 @@ async function getCuidadoresCPF(cpf) {
         Cuidador.find({
             cpf: cpf
         }).then(data => {
-            resolve(data[0])
+            resolve(data)
         }).catch(() => {
             rejected(false)
         })
@@ -230,7 +299,7 @@ async function getResponsaveisEmail(email) {
         Responsavel.find({
             email: email
         }).then(data => {
-            resolve(data[0])
+            resolve(data)
         }).catch(() => {
             rejected(false)
         })
@@ -244,7 +313,7 @@ async function getResponsaveisCPF(cpf) {
         Responsavel.find({
             cpf: cpf
         }).then(data => {
-            resolve(data[0])
+            resolve(data)
         }).catch(() => {
             rejected(false)
         })
