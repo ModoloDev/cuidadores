@@ -3,6 +3,7 @@
         <title>Paciente - Cuidadores</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/paciente.css">
+        <link rel="stylesheet" href="css/calendario.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
         <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
@@ -70,8 +71,20 @@
                     <div id="editorjs">
                         <p class="editorNotas">INFORMAÇÕES</p>  
                     </div>
-                    <button id="btnSave"><i class="btnSave fa fa-edit"></i></button>
+                    <button id="btnSave"><i class="btnSave fa fa-check"></i></button>
                 </div>
+
+                <div class="calendarioDIV">
+                    <div class="calendarioDIVHeader">
+                        <div id="loadButton">CALENDÁRIO</div>
+                    </div>
+
+                    <div class="calendarioDIVInfo animate__animated animate__fadeInUp" style="display: none;">
+                        <div id="calendar" style="height: 70%; width: 100%;"></div>
+                        <div id="saveButton">Salvar</div>
+                    </div>
+                </div>
+
 
                 <p class="cuidadorestitulo"><span class="text-main">CUIDA</span><span class="text-primary">DORES</span></p>
 
@@ -89,9 +102,6 @@
                             </i>
                         </div>
                     </div>
-                    <div id="calendar" style="height: 70%; width: 100%; display: none;"></div>
-                    <button id="saveButton">Save</button>
-                    <button id="loadButton">abrir calendario</button>
                 </div>
                 <div class="login-card-footer">
                     <p class="text-muted">2020 Copyright &copy; Cuidadores</p>
@@ -111,6 +121,13 @@
                 btnSaveClass.removeClass( "fa-edit" );
                 btnSaveClass.addClass( "fa-check" );
                 btnSaveID.css({"background": '#1C1E4A'})
+            });
+        </script>
+        <script>
+            var CalendarioHeader = $(".calendarioDIVHeader");
+            var CalendarioInfo = $(".calendarioDIVInfo");
+            CalendarioHeader.click(function() {
+                CalendarioInfo.css("display", "block");
             });
         </script>
     </body>

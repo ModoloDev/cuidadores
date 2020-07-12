@@ -2,6 +2,8 @@
     <head>
         <title>Login Cuidador - Cuidadores</title>
         <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="css/calendario.css">
+        <link rel="stylesheet" href="css/light.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -64,9 +66,16 @@
                     </div>
                 </div>
 
-                <div id="calendar" style="height: 70%; width: 100%; display: none;"></div>
-                <button id="saveButton">Save</button>
-                <button id="loadButton">abrir calendario</button>
+                <div class="calendarioDIV">
+                    <div class="calendarioDIVHeader">
+                        <div id="loadButton">CALENDÁRIO</div>
+                    </div>
+
+                    <div class="calendarioDIVInfo animate__animated animate__fadeInUp" style="display: none;">
+                        <div id="calendar" style="height: 70%; width: 100%;"></div>
+                        <div id="saveButton">Salvar</div>
+                    </div>
+                </div>
 
                 <h1 class="cuidadorestitulo"><span class="text-main">PACIE</span><span class="text-primary">NTES</span></h1>
                 <div class="loginTabel">
@@ -109,5 +118,12 @@
         <script src="js/MindFusion.Scheduling.js"></script>
         <script src="js/GoogleSchedule.js"></script>
         <script src="js/TimeForm.js"></script>
+        <script>
+            var CalendarioHeader = $(".calendarioDIVHeader");
+            var CalendarioInfo = $(".calendarioDIVInfo");
+            CalendarioHeader.click(function() {
+                CalendarioInfo.css("display", "block");
+            });
+        </script>
     </body>
 </html>
