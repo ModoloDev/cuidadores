@@ -66,7 +66,6 @@ getCuidador = async (cpfPaciente) => {
                 body: payloadJSON,
                 headers: {"Content-Type": "application/json; charset=UTF-8"}
             }).then(() => {
-                window.alert('Cuidador atribuido com sucesso!')
                 window.location.href = `paciente.html?c=${btoa(cpfPaciente)}`
             })
         })
@@ -87,6 +86,5 @@ updateList = () => {
             }
         }
     }
-
 }
 getCuidador(cpfPaciente);

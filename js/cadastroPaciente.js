@@ -69,7 +69,6 @@ document.getElementById('btnCadastro').addEventListener('click', async () => {
             window.alert('Houve um erro ao cadastrar o paciente');
             window.location.reload(true);
         } else {
-            window.alert('Paciente cadastrado com sucesso!');
             window.location.href = `adicionacuidador.html?c=${btoa(cpf)}`
         }
     })
