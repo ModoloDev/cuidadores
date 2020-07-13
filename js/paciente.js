@@ -62,7 +62,7 @@ getCuidador = async (cpfPaciente) => {
                                         <p>Telefone: ${data.data[cuidador].telefone}</p>  
                                     </div>
                                     <div class="cuidadoradd">
-                                        <a id="btnCuidadorRemove" class=${btoa(data.data[cuidador].cpf)}><i class="fa fa-user-plus"></i></a>
+                                        <a id="btnCuidadorRemove" title="Remover Cuidador" class=${btoa(data.data[cuidador].cpf)}><i class="fa fa-user-times"></i></a>
                                     </div>
                                 </div>
                             </div>

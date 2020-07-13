@@ -505,6 +505,13 @@ nav>ul>li { display: inline-block; }
     color: #41EAA7;
 }
 
+.cuidadoradd{
+    text-align: right;
+}
+.cuidadoradd i{
+    font-size: 3vw;
+}
+
 
 /* Mobile Styling */
  
