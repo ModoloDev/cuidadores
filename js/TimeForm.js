@@ -223,28 +223,9 @@ syncCuidador = async (cpf, evento) => {
 	})
 	await verif.json().then(data => {
 		eventos = JSON.parse(data.data.cuidador[0].calendario)
-		eventos.items.push({
-			id: evento._id,
-			startTime: evento._startTime._ticks,
-			endTime: evento._endTime._ticks,
-			allowChangeStart: evento._allowChangeStart,
-			allowChangeEnd: evento._allowChangeEnd,
-			allowMove: evento._allowMove,
-			allDayEvent: evento._allDayEvent,
-			locked: evento._locked,
-			subject: evento._subject,
-			details: evento._details,
-			contacts: [],
-			resources: [],
-			location: null,
-			task: null,
-			cssClass: evento._cssClass,
-			visible: evento._visible,
-			priority: evento._priority,
-			reminder: evento._reminder
-		})
+		eventos.items.push(evento.toJson())
 	})
-	console.log(JSON.stringify(eventos))
+
 	payloadJSON = JSON.stringify({
 		cpf: cpf,
 		calendario: eventos

@@ -27,23 +27,3 @@ function handleSelectionEnd(sender, args)
 	var form = new TimeForm(sender, item, "new");
 	form.showForm();
 }
-
-document.getElementById( 'saveButton' ).addEventListener( 'click', function() {
-
-	try {
-        var cpf = cpfPaciente
-    } catch {
-        var cpf = userInfo.cpf
-    }
-
-	payloadJSON = JSON.stringify({
-		cpf: cpf,
-		calendario: calendar.schedule.toJson()
-	})
-
-	fetch(`${URL_API}/save/calendario/${identificacao}`, {
-		method: 'POST',
-		body: payloadJSON,
-		headers: {"Content-Type": "application/json; charset=UTF-8"}
-	})
-});

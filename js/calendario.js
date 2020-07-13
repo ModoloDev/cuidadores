@@ -3,7 +3,7 @@ if (identificacao == 'ambos') {
     identificacao = 'paciente'
 }
 
-getCuidadoresObj = async () => {
+getCuidadoresObj = async (cpf) => {
     var obj = [];
     return new Promise (async (resolve) => {
         var cuidadores = await fetch(`${URL_API}/cuidadores`, {
@@ -12,17 +12,25 @@ getCuidadoresObj = async () => {
         });
         await cuidadores.json().then((data) => {
             for (var cuidador in data.data) {
-                obj.push({ value: data.data[cuidador].cpf, text: data.data[cuidador].nome})
+                for (var i in data.data[cuidador].pacientes) {
+                    if (data.data[cuidador].pacientes[i] == cpf) obj.push({ value: data.data[cuidador].cpf, text: data.data[cuidador].nome})
+                }
             }
         })
         resolve(obj)
     })
 }
 
-var cuidObj = [];
-getCuidadoresObj().then(data => {
-    cuidObj = data;
-});
+try {
+    var cpf = cpfPaciente
+    var cuidObj = [];
+    getCuidadoresObj(cpf).then(data => {
+        cuidObj = data;
+    });
+} catch {
+    var cpf = userInfo.cpf
+}
+
 
 LoadCalendario = async (callback) => {
 
@@ -45,13 +53,29 @@ LoadCalendario = async (callback) => {
     })
 }
 
-load = async () => {
-	await LoadCalendario(response => {
-		calendar.schedule.fromJson(response)
-	})
-}
+document.getElementById( 'saveButton' ).addEventListener( 'click', async () => {
 
-document.getElementById('loadButton').addEventListener('click', async () => {
-    await load();
-    document.getElementById('calendar').style['display'] = "";
+	try {
+        var cpf = cpfPaciente
+    } catch {
+        var cpf = userInfo.cpf
+    };
+
+	payloadJSON = JSON.stringify({
+		cpf: cpf,
+		calendario: calendar.schedule.toJson()
+	});
+
+	await fetch(`${URL_API}/save/calendario/${identificacao}`, {
+		method: 'POST',
+		body: payloadJSON,
+		headers: {"Content-Type": "application/json; charset=UTF-8"}
+	});
+});
+
+document.getElementById('loadButton').addEventListener('click', () => {
+    LoadCalendario(response => {
+        calendar.schedule.fromJson(response);
+        document.getElementById('calendar').style['display'] = "";
+	})
 })

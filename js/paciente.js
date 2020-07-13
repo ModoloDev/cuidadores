@@ -10,7 +10,7 @@ $.extend({
         return vars;
     }
 })
-console.log(typeof(userInfo.calendario))
+
 if (userInfo.calendario == undefined) {
     document.getElementById('voltarId').href = 'loginresponsavel.html'
 } else {

@@ -22553,7 +22553,7 @@
                     };
                     if (!checked) {
                         checked = true;
-                        if (s == null) {
+                        if (s == null && !checked) {
                             startXhr = new Date().getTime();
                             var o = "planner_lic.txt";
                             var p = m.licenseLocation;
