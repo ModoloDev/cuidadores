@@ -596,4 +596,8 @@ nav>ul>li { display: inline-block; }
     .editorNotas{
         font-size: 6vw;
     }
+
+    .cuidadoradd i{
+        font-size: 12vw;
+    }
 }
