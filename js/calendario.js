@@ -31,7 +31,6 @@ try {
     var cpf = userInfo.cpf
 }
 
-
 LoadCalendario = async (callback) => {
 
     try {

@@ -237,6 +237,34 @@ exports.saveCalendarioCuidador = (req, res, next) => {
 
 }
 
+exports.removeCuidador = (req, res, next) => {
+
+    // exemplo de body = {
+    //     paciente: {
+    //         cpf: 
+    //     },
+    //     cuidador: {
+    //         cpf:
+    //     }
+    // }
+
+    Cuidador.find({cpf: req.body.cuidador.cpf}).then(data => {
+        data = data[0]
+        for (let i = 0; i < data.pacientes.length; i++) {
+            if (data.pacientes[i] == req.body.paciente.cpf) {
+                data.pacientes.splice(i, 1)
+                break;
+            }
+        }
+        Cuidador.replaceOne({cpf: req.body.cuidador.cpf}, data).then(() => {
+            res.status(200).send({message: "Sucesso!", data: data})
+        }).catch(error => {
+            res.staus(400).send({message: 'Fail', data: error})
+        })
+    })
+
+}
+
 async function getPacientesEmail(email) {
 
     var promise = new Promise((resolve, rejected) => {

@@ -61,6 +61,9 @@ getCuidador = async (cpfPaciente) => {
                                         <p>Gênero: ${data.data[cuidador].genero}</p>
                                         <p>Telefone: ${data.data[cuidador].telefone}</p>  
                                     </div>
+                                    <div class="cuidadoradd">
+                                        <a id="btnCuidadorRemove" class=${btoa(data.data[cuidador].cpf)}><i class="fa fa-user-plus"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>`;
@@ -78,8 +81,28 @@ document.addEventListener('readystatechange', async event => {
     
     if (event.target.readyState === "complete") {
         document.getElementById('showCuidador').innerHTML = info;
-        $('.infocuidador').click(function(){
+        $('.infocuidador').click(async function(){
             $(this).children('.infocuidadormais').first().toggle("slow", "swing");
+            let cpf = atob($(this).children('.infocuidadormais').children('.cuidadoradd').children('#btnCuidadorRemove').attr('class'));
+            await $(this).children('.infocuidadormais').children('.cuidadoradd').children('#btnCuidadorRemove').click(async() => {
+                let payloadJSON = JSON.stringify({
+                    cuidador: {
+                        cpf: cpf
+                    },
+                    paciente: {
+                        cpf: cpfPaciente
+                    }
+                })
+
+                await fetch(`${URL_API}/remove/paciente`, {
+                    method: 'POST',
+                    body: payloadJSON,
+                    headers: {"Content-Type": "application/json; charset=UTF-8"}
+                }).then(() => {
+                    window.alert('Cuidador Removido com sucesso!');
+                    window.location.reload(true);
+                })
+            })
         });
         document.getElementById('loaderId').style["display"] = "none";
         document.getElementById("loginCard").style["display"] = "";

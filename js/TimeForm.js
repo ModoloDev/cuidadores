@@ -238,4 +238,3 @@ syncCuidador = async (cpf, evento) => {
 	})
 
 }
-

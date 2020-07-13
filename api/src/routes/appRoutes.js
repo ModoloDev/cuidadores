@@ -13,5 +13,6 @@ router.post('/cuidadores', controller.getCuidadores);
 router.post('/save/info', controller.saveInfo);
 router.post('/save/calendario/paciente', controller.saveCalendarioPaciente);
 router.post('/save/calendario/cuidador', controller.saveCalendarioCuidador);
+router.post('/remove/paciente', controller.removeCuidador);
 
 module.exports = router;
