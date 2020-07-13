@@ -76,6 +76,5 @@ document.getElementById( 'saveButton' ).addEventListener( 'click', async () => {
 document.getElementById('loadButton').addEventListener('click', () => {
     LoadCalendario(response => {
         calendar.schedule.fromJson(response);
-        document.getElementById('calendar').style['display'] = "";
 	})
 })
