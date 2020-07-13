@@ -316,7 +316,7 @@ a{
     position: inherit;
     line-height: 100%;
     margin-top: 0%;
-    font-size: 2vw;
+    font-size: 3vw;
     color: #212124;
     font-weight: bold;
 }
@@ -402,6 +402,7 @@ a{
     font-size: 3.5vw;
     color: white;
     position: fixed;
+    z-index:9998;
 }
 #bars:hover{
     color:  #41EAA7;
@@ -563,7 +564,7 @@ nav>ul>li { display: inline-block; }
     }
 
     .infocuidador .nomecuidador{
-        font-size: 4vw;
+        font-size: 5vw;
         top: 0px;
     }
 
@@ -577,9 +578,22 @@ nav>ul>li { display: inline-block; }
     }
 
     .cuidadores{
-        font-size: 7vw;
+        font-size: 10vw;
     }
     .cuidadorestitulo{
         font-size: 7vw;
+    }
+
+    #btnSave{
+        width: 12vw;
+        height: 12vw;
+    }
+
+    .cuidador i::before{
+        font-size: 12vw;
+    }
+
+    .editorNotas{
+        font-size: 6vw;
     }
 }

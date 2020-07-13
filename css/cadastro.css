@@ -363,6 +363,7 @@ label h2{
   #bars{
       color: #1C1E4A;
       font-size: 12vw;
+      z-index:9998;
   }
 
   .btnClass{

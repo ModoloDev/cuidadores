@@ -142,6 +142,7 @@ a{
 .perfilDadosRestantesTitulo{
     font-weight: bold;
     font-size: 1.5vw;
+    line-height: 100%;
 }
 
 .perfilDadosRestantes{
@@ -177,6 +178,7 @@ a{
     font-size: 3.5vw;
     color: white;
     position: fixed;
+    z-index:9998;
 }
 #bars:hover{
     color:  #41EAA7;
@@ -441,9 +443,6 @@ nav>ul>li { display: inline-block; }
         width: 100%;
         border-radius: 0px;
     }
-    .main *{
-        font-size:12vw
-    }
     /* .login-card-footer {
         display: block;
         position: absolute;
@@ -496,6 +495,23 @@ nav>ul>li { display: inline-block; }
         font-size: 12vw;
     }
     .paciente h3{
+        font-size: 6vw;
+    }
+
+    .imgperfilprincipal{
+        width: 30vw;
+        height: 30vw;
+    } 
+    .nomePerfil{
+        font-size: 12vw;
+    }
+    .tipoDeUsuario{
+        font-size: 6vw;
+    }
+    .perfilDadosRestantesTitulo{
+        font-size: 8vw;
+    }
+    .perfilDadosRestantes{
         font-size: 6vw;
     }
 }

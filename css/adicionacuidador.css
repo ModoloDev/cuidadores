@@ -167,6 +167,7 @@ a{
     font-size: 3.5vw;
     color: white;
     position: fixed;
+    z-index:9998;
 }
 #bars:hover{
     color:  #41EAA7;

@@ -57,9 +57,9 @@ getCuidador = async (cpfPaciente) => {
                                 <div class="infocuidadormais" style="display:none;">
                                     <p class="adicionais">INFORMAÇÕES ADICIONAIS</p>
                                     <div class="infomais">
-                                        <p>${data.data[cuidador].dataNsc}</p>
-                                        <p>${data.data[cuidador].genero}</p>
-                                        <p>${data.data[cuidador].telefone}</p>  
+                                        <p>Data de Nascimento: ${data.data[cuidador].dataNsc}</p>
+                                        <p>Gênero: ${data.data[cuidador].genero}</p>
+                                        <p>Telefone: ${data.data[cuidador].telefone}</p>  
                                     </div>
                                 </div>
                             </div>
