@@ -62,7 +62,7 @@ document.getElementById( 'saveButton' ).addEventListener( 'click', async () => {
 
 	payloadJSON = JSON.stringify({
 		cpf: cpf,
-		calendario: calendar.schedule.toJson()
+		calendario: JSON.parse(calendar.schedule.toJson())
 	});
 
 	await fetch(`${URL_API}/save/calendario/${identificacao}`, {

@@ -222,8 +222,18 @@ syncCuidador = async (cpf, evento) => {
 		headers: {"Content-Type": "application/json; charset=UTF-8"}
 	})
 	await verif.json().then(data => {
-		eventos = JSON.parse(data.data.cuidador[0].calendario)
-		eventos.items.push(evento.toJson())
+		eventos = data.data.cuidador[0].calendario
+		try {
+			eventos.items.push(evento.toJson())
+		} catch {
+			eventos = {
+				contacts: [],
+				resources: [],
+				locations: [],
+				tasks: [],
+				items: [evento.toJson()]
+			}
+		}
 	})
 
 	payloadJSON = JSON.stringify({
