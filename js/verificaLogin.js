@@ -1,4 +1,4 @@
-const URL_API = 'https://cuidadores-api-pjxy6vdnga-uw.a.run.app'
+const URL_API = 'https://cuidadores-api-gnoik7og5a-uw.a.run.app'
 
 var userInfo = document.cookie
 try {
